@@ -1,0 +1,234 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Varela+Round&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Kaushan+Script&family=Lobster&family=Varela+Round&display=swap');
+  body{
+      background-color: #fff;
+  }
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  nav{
+      font-family: 'hubballi',sans-serif;
+  }
+  nav ul{
+    
+      display: flex;
+      align-items:center;
+      list-style-type: none;
+      height: 65px;
+      background-color: black;
+      color: white;
+  }
+  
+  nav ul li{
+      padding: 0 12px;
+  }
+  nav ul a{
+      text-decoration: none;
+      color: white;
+      padding: 4px 4px;
+      text-align: right;
+  }
+  
+  .ourlogo img{
+      width: 100px;
+  
+  }
+  
+  .ourlogo{
+      display: flex;
+      align-items: center;
+      font-weight: bolder;
+      font-size: 1.3rem;
+  }
+  #banner{
+        background: linear-gradient(rgb(0,0,0,0.5),#28c792);   /*/url */ 
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+  }
+  .banner-text{
+      text-align: center;
+      color: #fff;
+      padding-top: 180px;
+  }
+  .banner-text h1{
+      font-size: 130px;
+      font-family: 'Kaushan Script', cursive;
+  }
+  .banner-text p{
+      font-size: 20px;
+      font-style: italic;
+  }
+  .banner-btn a{
+      width: 150px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 0;
+      color: aquamarine;
+      border: .5px solid #fff;
+      position: relative;
+      z-index:1;
+      transition: color 0.5s;
+      
+  }
+  .banner-btn a span{
+      width: 50;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      z-index: -1;
+      transition: 0.5s;
+  }
+  .banner-btn a:hover span{
+      width: 100%;
+  
+  }
+  .banner-btn a:hover{
+      color: #000;
+  }
+  
+  /* features */
+  
+  .feature{
+      width: 100%;
+      padding: 70px 0;
+  }
+  .title-text{
+      text-align: center;
+      padding-bottom: 70px;
+  }
+  .title-text p{
+      margin:auto;
+      font-size: 20px;
+      color: #00a16c;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+  }
+  .title-text p::after{
+      content: '';
+      width: 50px;
+      height: 35px;
+      background: linear-gradient(#019587,#fff);
+      position: absolute;
+      top: -20px;
+      left: 0;
+      z-index: -1;
+      transform: rotate(10deg);
+      border-top-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+  }
+  .title-text h1{
+      font-size: 50px;
+  }
+  
+  /* asesments */
+  .assesment{
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: auto;
+  }
+  .assesment-feature{
+      flex-basis: 40%;
+      text-align: center;
+      border-radius: 7px;
+      margin-bottom: 20px;
+      color: #fff;
+      position: relative;
+  }
+  .assesment-feature img{
+      width: 100%;
+      border-radius: 7px;
+  }
+  
+  .overlay{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      background: linear-gradient(rgb(0,0,0,0.5),#96dfd7) ;
+      opacity: 0;
+      transition: 1s;
+  }
+  .assesment-feature:hover .overlay{
+      opacity: 1;
+  }
+  .discription{
+      width: 80%;
+      position:absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+      opacity: 0;
+  }
+  hr{
+      background: white;
+      height: 2px;
+      border: 0;
+      margin: 15px auto;
+      width: 60%;
+  }
+  .discription p{
+      font-size: 14px;
+  
+  }
+  .assesment-feature:hover .discription{
+      bottom: 40%;
+      opacity: 1;
+  }
+  .overlay-link{
+      text-decoration: none;
+      color: #fff;
+  
+  }
+  
