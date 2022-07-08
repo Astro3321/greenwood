@@ -1,21 +1,9 @@
 import React from 'react'
-
+import "../App.css"
 
 export default function Home() {
   return (
    <>
-   <html>
-    {/* <!-- navitgation bar --> */}
-    <nav>
-        <ul>
-            <li className="ourlogo"><img src="himages/softwarelogo.png" alt="ourlogo"/>GreenWood </li>
-            <li>Home</li>
-            <li>About</li>
-           <a href="http://127.0.0.1:5500/index.html"><li className="left">Login</li></a>
-            <a href="http://127.0.0.1:5500/pages/signup/signup.html"><li className="left">Signup</li></a>
-            
-        </ul>
-    </nav> 
     <section id="banner">
         <div className="banner-text">
             <h1>Green wood</h1>    
@@ -77,12 +65,6 @@ export default function Home() {
               <a href="http://127.0.0.1:5500/pages/Discalculia/discalculia.html"  className="overlay-link">  <p>Dyscalculia is a disability resulting in difficulty learning, such as difficulty in understanding numbers, learning how to manipulate numbers, performing mathematical calculations and learning facts in mathematics.</p></a>
             </div></div>
             </section>
-            </html>
 </>
-            
-
-            
-    
   )
-    
 }
