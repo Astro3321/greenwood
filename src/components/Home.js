@@ -1,12 +1,20 @@
 import React from 'react'
 import "../App.css"
 
-export default function Home() {
+
+export default function Home(props) {
+
+    const banner = {
+        background: "linear-gradient(rgb(0,0,0,0.5),#28c792),url(AdobeStock_257052648_Preview.png)", /*/url */ 
+        backgroundsize: "cover",
+        backgroundposition: "center",
+        height: "100vh"
+    };
   return (
    <>
-    <section id="banner">
+    <section id="banner" style={banner}>
         <div className="banner-text">
-            <h1>Green wood</h1>    
+            <h1 style={{fontFamily:"'Kaushan Script', cursive"}}>Green wood</h1>    
             <p>Never doubt your abilities</p>
             <div className="banner-btn">
                 <a href="http://127.0.0.1:5500/pages/greenwood/Greenwood.html" ><span></span>Read More</a>
