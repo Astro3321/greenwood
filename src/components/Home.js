@@ -1,11 +1,12 @@
 import React from 'react'
 import "../App.css"
+import CoverImg from "../images/CoverImg.png"
 
 
 export default function Home(props) {
 
     const banner = {
-        background: "linear-gradient(rgb(0,0,0,0.5),#28c792),url(AdobeStock_257052648_Preview.png)", /*/url */ 
+        background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${CoverImg})`, /*/url */ 
         backgroundsize: "cover",
         backgroundposition: "center",
         height: "100vh"
