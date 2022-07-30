@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
   }
-  nav{
+  /* nav{
       font-family: 'hubballi',sans-serif;
   }
   nav ul{
@@ -44,14 +44,14 @@
       display: flex;
       align-items: center;
       font-weight: bolder;
-      font-size: 1.3rem;
-  }
-  #banner{
-        /* background: linear-gradient(rgb(0,0,0,0.5),#28c792);   */
+      font-size: 1.3rem; */
+  
+  /* #banner{
+        background: linear-gradient(rgb(0,0,0,0.5),#28c792);  
       background-size: cover;
       background-position: center;
-      /* height: 100vh; */
-  }
+      height: 100vh;
+  } */
   .banner-text{
       text-align: center;
       color: #fff;
@@ -63,7 +63,7 @@
   }
   .banner-text p{
       font-size: 20px;
-      font-style: italic;
+      font-family: 'Varela Round', sans-serif;
   }
   .banner-btn a{
       width: 150px;
@@ -71,8 +71,8 @@
       display: inline-block;
       margin: 6px;
       padding: 8px 0;
-      color: aquamarine;
-      border: .5px solid #fff;
+      color: rgb(166, 220, 203);
+      border: 0.8px solid #fff;
       position: relative;
       z-index:1;
       transition: color 0.5s;
@@ -130,6 +130,9 @@
   }
   .title-text h1{
       font-size: 50px;
+      font-family: 'Ibarra Real Nova', serif;
+      font-weight: bold;
+
   }
   
   /* asesments */
@@ -184,6 +187,7 @@
   }
   .discription p{
       font-size: 14px;
+      margin-bottom: -2rem;
   
   }
   .assesment-feature:hover .discription{

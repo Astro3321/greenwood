@@ -10,18 +10,15 @@ export default function Home(props) {
         // backgroundsize: "cover",
         // backgroundposition: "center",
         height: "100vh",
-        
-        
-
     };
   return (
    <>
     <section id="banner" style={banner}>
         <div className="banner-text">
-            <h1 style={{fontFamily:"'Kaushan Script', cursive"}}>Green wood</h1>    
+            <h1 style={{fontfamily:"'Kaushan Script', cursive"}}><b>Green wood</b></h1>    
             <p>Never doubt your abilities</p>
             <div className="banner-btn">
-                <a href="http://127.0.0.1:5500/pages/greenwood/Greenwood.html" ><span></span>Read More</a>
+                <a href="http://127.0.0.1:5500/pages/greenwood/Greenwood.html" ><span></span><b>Read More</b></a>
             </div>
         </div>
     </section>
@@ -38,7 +35,7 @@ export default function Home(props) {
             <div className="discription">
                 <h3>DISLEXIA</h3>
                 <hr/>
-                <a href="http://127.0.0.1:5500/pages/dyslexia/dyslexia.html"  className="overlay-link"> <p>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding). Also called reading disability, dyslexia affects areas of the brain that process language.</p></a>
+                <a href="http://127.0.0.1:5500/pages/dyslexia/dyslexia.html"  className="overlay-link"> <p style={{marginTop:"10px"}}>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding). Also called reading disability, dyslexia affects areas of the brain that process language.</p></a>
             </div>
         </div>
         <div className="assesment-feature">
@@ -70,12 +67,12 @@ export default function Home(props) {
               <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link">  <p>Autism spectrum disorder is a condition related to brain development that impacts how a person perceives and socializes with others, causing problems in social interaction and communication. The disorder also includes limited and repetitive patterns of behavior.</p></a>
             </div></div>
         <div className="assesment-feature">
-            <img src="himages/discalculia.png" alt="" /><div className="overlay"/></div>
+            <img src="himages/discalculia.png" alt="" /><div className="overlay"></div>
             <div className="discription">
                 <h3>DISCALCULIA</h3>
                 <hr/>
               <a href="http://127.0.0.1:5500/pages/Discalculia/discalculia.html"  className="overlay-link">  <p>Dyscalculia is a disability resulting in difficulty learning, such as difficulty in understanding numbers, learning how to manipulate numbers, performing mathematical calculations and learning facts in mathematics.</p></a>
-            </div></div>
+            </div></div></div>
             </section>
 </>
   )

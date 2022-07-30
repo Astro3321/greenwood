@@ -15,7 +15,7 @@ export default function App() {
 	<Container fluid>
 		<Router>
 			<AuthProvider>
-				<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: "5rem"}}>
+				<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: "5rem",backgroundColor: "black"}}>
 					<Container style={fontStyles}>
 						<Navbar.Brand href="/">GreenWood</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
