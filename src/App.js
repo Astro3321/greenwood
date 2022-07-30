@@ -3,6 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import Home from "./components/Home"
+import Profile from "./components/Profile"
 
 export default function App() {
 	const fontStyles = {
@@ -14,7 +15,7 @@ export default function App() {
 	<Container fluid>
 		<Router>
 			<AuthProvider>
-				<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+				<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: "5rem"}}>
 					<Container style={fontStyles}>
 						<Navbar.Brand href="/">GreenWood</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -36,6 +37,7 @@ export default function App() {
 					<Route path="/" element={<Home />}></Route>
 					{/* <Route path="/login" element={}></Route> Login */}
 					{/* <Route path="/signup" element={}></Route> Signup */}
+					<Route path="/profile" element={<Profile />}></Route> Signup
 				</Routes>
 			</AuthProvider>
 		</Router>
