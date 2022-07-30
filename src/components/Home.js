@@ -6,10 +6,13 @@ import CoverImg from "../images/CoverImg.png"
 export default function Home(props) {
 
     const banner = {
-        background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${CoverImg})`, /*/url */ 
-        backgroundsize: "cover",
-        backgroundposition: "center",
-        height: "100vh"
+        background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${CoverImg}) no-repeat center center / cover`, /*/url */
+        // backgroundsize: "cover",
+        // backgroundposition: "center",
+        height: "100vh",
+        
+        
+
     };
   return (
    <>
