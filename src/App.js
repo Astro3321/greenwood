@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import Home from "./components/Home"
 import Profile from "./components/Profile"
+import Footer from "./components/Footer"
 
 export default function App() {
 	const fontStyles = {
@@ -39,6 +40,7 @@ export default function App() {
 					{/* <Route path="/signup" element={}></Route> Signup */}
 					<Route path="/profile" element={<Profile />}></Route> Signup
 				</Routes>
+				<Footer/>
 			</AuthProvider>
 		</Router>
 	</Container>
