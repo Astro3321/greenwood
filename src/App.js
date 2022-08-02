@@ -5,11 +5,13 @@ import { AuthProvider } from "./contexts/AuthContext"
 import Home from "./components/Home"
 import Profile from "./components/Profile"
 import Footer from "./components/Footer"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 
 export default function App() {
 	const fontStyles = {
 		fontSize: "1.3rem", 
-		fontWeight: "bold"
+		fontWeight: "bold" 
 	}
 
 	return (
