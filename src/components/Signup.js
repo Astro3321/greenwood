@@ -1,6 +1,7 @@
 import React,{useRef} from 'react'
 import {Form, Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import ".//UserForm.css"
 
 export default function Signup() {
     const emailRef = useRef()
@@ -8,6 +9,8 @@ export default function Signup() {
     const passwordConfirmRef = useRef()
 
     return (<>
+    <br></br>
+    <div class= "square2">
     <Card>
         <Card.Body>
             <h1 className='text-center mb-4'> Sign Up</h1>
@@ -32,7 +35,9 @@ export default function Signup() {
         </Card.Body>
     </Card>
     <div className="w-100 text-center mt-2">
-        Already have an Account?<Link to="login">Login</Link>
+    <strong> Already have an Account?</strong><Link to="/login">Login</Link>
     </div>
+    </div>
+    <br></br>
     </>)
 }
