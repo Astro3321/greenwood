@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Profile(props) {
-  return (
+    const [error, setError] = useState('')
+    const { logout } = useAuth()
+    const navigate = useNavigate()
+
+    async function handleLogout(event){
+        event.preventDefault()
+
+        try{
+            setError('')
+            await logout()
+            navigate("/login")
+        } catch(e) {
+            setError(e.message)
+        }
+    }
+
+    return (
     <div>
       <div className='my-4' >
       <div className="row " >
@@ -14,7 +33,7 @@ export default function Profile(props) {
                         <a href="/">Home</a><br /><br />
                         <a href="/">Tests</a><br /><br />
                         <a href="/">Setting</a><br /><br />
-                        <a href="/">Signout</a>
+                        <Button variant="link" onClick={handleLogout}>Logout</Button>
                     </div>
                 </div>
             </div>
