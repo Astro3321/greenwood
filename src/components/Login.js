@@ -59,8 +59,8 @@ export default function Login() {
         </Form>
       </Card.Body>
     </Card>
-    <div className="w-100 text-center mt-2">
-      <strong> Need an Account? <Link to="/signup">Sign Up</Link></strong>
+    <div className="w-100 text-center mt-2 text-light">
+      <strong> Need an Account? <Link className='btn btn-light'  to="/signup">Sign Up</Link></strong>
     </div>
     </div>
     <br></br>
