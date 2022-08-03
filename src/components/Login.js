@@ -32,7 +32,7 @@ export default function Login() {
       </Card.Body>
     </Card>
     <div className="w-100 text-center mt-2">
-      <strong> Need an Account? <Link to="/signup">"Sign Up</Link></strong>
+      <strong> Need an Account? <Link to="/signup">Sign Up</Link></strong>
     </div>
     </div>
     <br></br>

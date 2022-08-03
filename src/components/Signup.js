@@ -21,7 +21,7 @@ export default function Signup() {
                 </Form.Group>
 
                 <Form.Group id="passward">
-                    <Form.Label>password</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control type="password" ref={passwordRef} required />
                 </Form.Group>
 
@@ -29,7 +29,7 @@ export default function Signup() {
                     <Form.Label>Password Confirmation</Form.Label>
                     <Form.Control type="password" ref={passwordConfirmRef} required />
                 </Form.Group>
-
+                <br></br>
                 <Button className="w-100" type="submit">Sign Up</Button>
             </Form>
         </Card.Body>
