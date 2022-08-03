@@ -45,6 +45,7 @@ export default function App() {
 				<Footer/>
 			</AuthProvider>
 		</Router>
+		
 	</Container>
 	)
 }
