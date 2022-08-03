@@ -8,10 +8,10 @@ export default function Footer(props) {
             <div className="container">
                 <div className="row py-4 d-flex align-items-center">
                     <div className="col-md-12 text-center">
-                        <a href="/"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="/"><i className="fa-brands fa-twitter"></i></a>
+                        <a href="/"><i className="fa-brands fa-linkedin"></i></a>
+                        <a href="/"><i className="fa-brands fa-instagram"></i></a>
+                        <a href="/"><i className="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
