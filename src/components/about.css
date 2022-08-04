@@ -1,0 +1,23 @@
+body{
+    font-family: Arial, Helvetica;
+    margin: 0;
+}
+.about-section{
+    text-align: center;
+    background-color: #019587;
+    color: white;
+    padding: 50px;
+}
+.colum{
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 5px
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(o,0,0,0.2);
+    margin: 8px;
+}
+.container{
+    display: table;
+}
