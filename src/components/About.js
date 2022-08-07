@@ -49,12 +49,7 @@ export default function About() {
                     </Card.Body>
                 </Card>
             </div>
-            
-        </div>
-        
-        <div className="row">
-            
-        <div className="column">
+            <div className="column">
                 <Card className="card">
                     <Card.Body>
                     <Row className='hello'>
@@ -73,6 +68,11 @@ export default function About() {
                     </Card.Body>
                 </Card>
             </div>
+        </div>
+        
+
+        <div className="row">
+
             <div className="column">
                 <Card className="card">
                     <Card.Body>
@@ -93,11 +93,7 @@ export default function About() {
                 </Card>
             </div>
 
-        </div>
-
-        <div className="row">
-            
-        <div className="column">
+            <div className="column">
                 <Card className="card">
                     <Card.Body>
                     <Row className='hello'>
