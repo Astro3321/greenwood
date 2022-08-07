@@ -8,20 +8,34 @@ body{
     color: white;
     padding: 50px;
 }
-.colum{
+.column{
     float: left;
     width: 33.3%;
     margin-bottom: 16px;
-    padding: 5px
+    padding: 5px;
 }
 .card{
     box-shadow: 0 4px 8px 0 rgba(o,0,0,0.2);
     margin: 8px;
+    background-color: #019587;
+    
+    /* height: 150px;
+    width: 150px; 
+    display: inline-block; */
 }
 .container{
+    /* background-color: #ddff19; */
     display: table;
+ 
+    /* display: inline-block; */
 }
-
+.hello{
+    display: center;
+    text-align: center;
+}
+.by{
+    margin: 20px;
+}
 /* html {
     box-sizing: border-box;
   }
@@ -34,4 +48,6 @@ body{
     width: 33.3%;
     margin-bottom: 16px;
     padding: 0 8px;
-  } */
+  }  */
+
+  /* style ={{width: "50%"}} */
