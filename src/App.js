@@ -9,6 +9,8 @@ import Login from "./components/Login"
 import Signup from "./components/Signup"
 import About from "./components/About"
 import Assessment from "./components/Assessment"
+import UpdateProfile from "./components/UpdateProfile"
+import RecentTest from "./components/RecentTest"
 
 export default function App() {
 	const fontStyles = {
@@ -46,8 +48,10 @@ export default function App() {
 					<Route path="/profile" element={<Profile />}></Route> Profile
 					<Route path="/about" element={<About />}></Route> About
 					<Route path="/tests" element={<Assessment />}></Route> Assessment
+					<Route path="/UpdateProfile" element={<UpdateProfile/>}></Route> UpdateProfile
+					<Route path="/RecentTest" element={<RecentTest/>}></Route> UpdateProfile
 				</Routes>
-				<Footer/>
+				<Footer />
 			</AuthProvider>
 		</Router>
 		

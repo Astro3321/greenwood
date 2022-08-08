@@ -1,10 +1,11 @@
 import React from 'react'
 
 export default function Footer(props) {
+  
   return (
     <div>
       <footer className="page-footer bg-dark">
-        <div  style={{background:"#019587"}}>
+        <div  style={{background:"#28c792"}}>
             <div className="container">
                 <div className="row py-4 d-flex align-items-center">
                     <div className="col-md-12 text-center">
