@@ -39,9 +39,9 @@ export default function Login() {
   
   return (<>
   <br></br>
-  <div className="square1">
-    <Card>
-      <Card.Body>
+  <div className="square1" style={{background:"#20c997",border:"2px solid white"}}>
+    <Card >
+      <Card.Body style={{background:"white"}}>
       <h1 className='text-center mb-4'><strong>Login</strong></h1>
       {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
@@ -60,7 +60,7 @@ export default function Login() {
       </Card.Body>
     </Card>
     <div className="w-100 text-center mt-2 text-dark">
-      <strong> Need an Account? <Link className='btn btn-dark'  to="/signup">Sign Up</Link></strong>
+      <strong> Need an Account? <Link className='btn btn-light'  to="/signup">Sign Up</Link></strong>
     </div>
     </div>
     <br></br>
