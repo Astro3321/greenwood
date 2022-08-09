@@ -42,16 +42,16 @@ export default function Login() {
   <div className="square1">
     <Card>
       <Card.Body>
-      <h1 className='text-center mb-4'> Login</h1>
+      <h1 className='text-center mb-4'><strong>Login</strong></h1>
       {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label><strong>Email</strong></Form.Label>
               <Form.Control type="email" ref={emailRef} required />
           </Form.Group>
-
+          <br />
           <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label><strong>Password</strong></Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
           </Form.Group>
           <br></br>
@@ -59,8 +59,8 @@ export default function Login() {
         </Form>
       </Card.Body>
     </Card>
-    <div className="w-100 text-center mt-2 text-light">
-      <strong> Need an Account? <Link className='btn btn-light'  to="/signup">Sign Up</Link></strong>
+    <div className="w-100 text-center mt-2 text-dark">
+      <strong> Need an Account? <Link className='btn btn-dark'  to="/signup">Sign Up</Link></strong>
     </div>
     </div>
     <br></br>

@@ -24,7 +24,7 @@ body{
     display: inline-block; */
 }
 .container{
-    /* background-color: #ddff19; */
+    /* background- color: #ddff19; */
     display: table;
  
     /* display: inline-block; */
@@ -34,7 +34,7 @@ body{
     text-align: center;
 }
 .by{
-    margin: 20px;
+    margin: 10px;
 }
 /* html {
     box-sizing: border-box;

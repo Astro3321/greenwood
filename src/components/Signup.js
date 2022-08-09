@@ -38,21 +38,21 @@ export default function Signup() {
     <div className="square2">
     <Card>
         <Card.Body>
-            <h1 className='text-center mb-4'> Sign Up</h1>
+            <h1 className='text-center mb-4'><strong>Sign Up</strong></h1>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label><strong>Email</strong></Form.Label>
                     <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
-
+                <br />
                 <Form.Group id="passward">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label><strong>Password</strong></Form.Label>
                     <Form.Control type="password" ref={passwordRef} required />
                 </Form.Group>
-
+                <br />
                 <Form.Group id="password-confirm">
-                    <Form.Label>Password Confirmation</Form.Label>
+                    <Form.Label><strong>Password Confirmation</strong></Form.Label>
                     <Form.Control type="password" ref={passwordConfirmRef} required />
                 </Form.Group>
 
@@ -60,8 +60,8 @@ export default function Signup() {
             </Form>
         </Card.Body>
     </Card>
-    <div className="w-100 text-center mt-2 text-light">
-    <strong> Already have an Account? </strong><Link className='btn btn-light ml-3'  to="/login">Login</Link>
+    <div className="w-100 text-center mt-2 text-dark">
+    <strong> Already have an Account? </strong><Link className='btn btn-dark ml-3'  to="/login">Login</Link>
     </div>
     </div>
     <br></br>
