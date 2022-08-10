@@ -78,7 +78,53 @@ export default function OrgProfile() {
             <div className="card mb-3 content" style={{background:"white"}}>
                 <div className="card-header">
                 <h1 className='m-3'>Recent Tests </h1>
-                <button type='button' className='btn btn-success' style={{width:"100px",float:"right"}}> <strong>Add more</strong> <span className="las la-arrow-right"></span></button>
+                <button type='button' className='btn btn-success' style={{width:"100px",float:"right"}} data-target="#mymodel" data-toggle="modal"> <strong>Add more</strong></button>
+
+                {/* add more model */}
+                <div className="modal" id='mymodel'>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h3 className="text-dark">Student Information</h3>
+                                <button className="close" type='button' data-dismiss="modal"> &times; </button>
+                            </div>
+                            <div className="modal-body">
+                                <form >
+                                    <div className="form-group">
+                                        <label >Name</label>
+                                        <input type="text" name="" id="" className='form-control' />
+                                    </div>
+                                    <div className="form-group">
+                                        <label > fathers Name</label>
+                                        <input type="text" name="" id="" className='form-control' />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >School Name</label>
+                                        <input type="text" name="" id="" className='form-control' />
+                                    </div>
+                               <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Test Name
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/">Dyslexia</a>
+                                    <a class="dropdown-item" href="/">Dyscalculia</a>
+                                    <a class="dropdown-item" href="/">Dysgraphia</a>
+                                    <a class="dropdown-item" href="/">Dyspraxia</a>
+                                    <a class="dropdown-item" href="/">ADHD</a>
+                                    <a class="dropdown-item" href="/">Autism</a>
+                                </div>
+</div>
+
+                                </form>
+                            </div>
+
+                            <div className="modal-footer">
+                                <button className="btn btn-success">conduct test</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div className="card-body">
                     <div className="row">
