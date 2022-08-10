@@ -12,6 +12,8 @@ import Assessment from "./components/Assessment"
 import UpdateProfile from "./components/UpdateProfile"
 import RecentTest from "./components/RecentTest"
 import Result from "./components/Result"
+import OrgSignup from "./components/OrgSignup"
+import OrgProfile from "./components/OrgProfile"
 
 export default function App() {
 	const fontStyles = {
@@ -49,9 +51,11 @@ export default function App() {
 					<Route path="/profile" element={<Profile />}></Route> Profile
 					<Route path="/about" element={<About />}></Route> About
 					<Route path="/tests" element={<Assessment />}></Route> Assessment
-					<Route path="/UpdateProfile" element={<UpdateProfile/>}></Route> UpdateProfile
-					<Route path="/RecentTest" element={<RecentTest/>}></Route> UpdateProfile
+					<Route path="/update-profile" element={<UpdateProfile/>}></Route> UpdateProfile
+					<Route path="/tests/recent" element={<RecentTest/>}></Route> Recent Test
 					<Route path="/result" element={<Result />}></Route> Result
+					<Route path="/OrgSignup" element={<OrgSignup/>}></Route> Organisation signup
+					<Route path="/profile/organizaton" element={<OrgProfile/>}></Route> Organisation profile
 				</Routes>
 				<Footer />
 			</AuthProvider>
