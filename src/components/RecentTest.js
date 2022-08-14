@@ -23,8 +23,8 @@ export default function RecentTest(props) {
                         </thead>
                         <tbody>     {/*      list idhar ayegiii */}
                             <tr>
-                                <td>Jhonny sins</td>
-                                <td>hiv</td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <span className="status"></span>review
                                 </td>
