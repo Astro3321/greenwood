@@ -1,36 +1,49 @@
 import React from 'react'
-import { Card, Container, Row, Col, ProgressBar } from 'react-bootstrap'
+import { Card, Container, Row, Col, ProgressBar, Table } from 'react-bootstrap'
 
-const questions = ["question 1", "question 2"]
-const answer = ["Rarely", "Sometimes"]
 
-const showResultTable = questions.map((question, index) => {
-    return <Row>
-        <Col><span className="">{question}</span></Col>
-        <Col><span className="">{answer[index]}</span></Col>
-    </Row>
-})
+
+function DisplayResultTable({ data }) {
+    const showQuestion = data.map((obj,index) => (
+        <tr>
+            <td>{index + 1}</td>
+            <td><span>{obj.question}</span></td>
+            <td><div>{obj.answer}</div></td>
+        </tr>
+    ))
+
+    const showHeading = <tr>
+        <th>#</th>
+        <th>Question</th>
+        <th>Answer</th>
+    </tr>
+
+return(
+    <div>
+            <center>
+                <h1>Result</h1>
+            </center>
+
+            <Table respponsive bordered hover size="sm">
+                <thead>
+                    {showHeading}
+                </thead>
+                <tbody>
+                    {showQuestion}
+                </tbody>
+            </Table>
+        </div>
+    )
+}
 
 export default function Result() {
-    return <Container>
-        <Row>
-            <Col>
-                <div className="display-image">
-                    <img src="" alt="" />
-                </div>
-            </Col>
-            <Col>
-                <Card></Card>
-            </Col>
-        </Row>
-        <Row>
-            {showResultTable}
-        </Row>
-        <Row>
-            <div className="mt-4 mb-3">Likliness of Disorder</div>
-            <div className="mx-auto mb-3" style={{width: "60%"}}>
-                <ProgressBar now="60" label="60%" style={{height: "6vh"}} striped animated/>
-            </div>
-        </Row>
-    </Container>
+    const data = [{
+        question: "Question 1",
+        answer: "Answer 1"
+    }, {
+        question: "Question 2",
+        answer: "Answer 2"
+    }]
+
+    return <DisplayResultTable data={data}/>
 }
