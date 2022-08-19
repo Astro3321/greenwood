@@ -57,7 +57,7 @@ export default function OrgProfile() {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-3">
-                                <h5>Full name</h5>
+                                <h5>Name</h5>
                             </div>
                             <div className="col-md-9 text-secondary">
                                 {data.name}
@@ -73,7 +73,7 @@ export default function OrgProfile() {
                         {/* <hr /> */}
                         <div className="row">
                             <div className="col-md-3">
-                                <h5>Phone</h5>
+                                <h5>Phone no.</h5>
                             </div>
                             <div className="col-md-9 text-secondary">
                                 {data.phoneNumber}
@@ -87,22 +87,23 @@ export default function OrgProfile() {
                                 {data.address}
                             </div>
                         </div>
+
                         <div className="row">
                             <div className="col-md-3">
-                                <h5>Application type</h5>
+                                <h5>Organization Id</h5>
                             </div>
                             <div className="col-md-9 text-secondary">
-                            Organisation
+                            bbbffb
                             </div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="col-md-3">
                                 <h5>Conductor Name</h5>
                             </div>
                             <div className="col-md-9 text-secondary">
                             huhuman
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="card mb-3 content" style={{background:"white"}}>
@@ -133,6 +134,10 @@ export default function OrgProfile() {
                                         <input type="text"  className='form-control' />
                                         </div>
                                         <div className="form-group">
+                                        <label >Age</label>
+                                        <input type="number"  className='form-control' />
+                                        </div>
+                                        <div className="form-group">
                                         <legend>Gender</legend>
                                             <input type="radio" name="gender" id="male" value="male" checked />
                                             <label for="male">Male:  </label>
@@ -143,13 +148,14 @@ export default function OrgProfile() {
                                     
                                         </div>
                                         <div className="form-group">
-                                            <label >student id:  </label>
-                                            <input type="number" name="" id="" className='form-control' />
+                                            <label >organisation Name </label>
+                                            <input type="text" name="" id="" className='form-control' />
                                         </div>
                                         <div className="form-group">
-                                            <label >Upload School id</label>
-                                            <input type="file" name="" id="" className='form-control' />
+                                            <label >organisation Id:  </label>
+                                            <input type="number" name="" id="" className='form-control' />
                                         </div>
+                                       
                                 {/* <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Test Name
@@ -176,12 +182,27 @@ export default function OrgProfile() {
                     </div>
                     <div className="card-body">
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-md-2">
                                 <h5>Student name</h5>
                             </div>
-                            <div className="col-md-3">
-                                <h5>Test</h5>
+                            <div className="col-md-2">
+                                <h5>class</h5>
                             </div>
+                            <div className="col-md-2">
+                                <h5>Age</h5>
+                            </div>
+                            <div className="col-md-2">
+                                <h5>Gender</h5>
+                            </div>
+                            
+                            <div className="col-md-2">
+                                <h5>Student ID</h5>
+                            </div>
+                            
+                            <div className="col-md-2">
+                                <h5>Organization ID</h5>
+                            </div>
+                            
                             <div className="col-md-9 text-secondary">
                                 Test description
                             </div>
