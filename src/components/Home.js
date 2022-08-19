@@ -11,6 +11,14 @@ export default function Home(props) {
         // backgroundposition: "center",
         height: "100vh",
     };
+
+    const firsttest = {
+        textalign: "center",
+        paddingbottom: "70px",
+        fontsize: "50px",
+      fontfamily: `'Ibarra Real Nova', serif`,
+      fontweight: "bold"
+    };
   return (
    <>
     <section id="banner" style={banner}>
@@ -30,14 +38,32 @@ export default function Home(props) {
         <h1>Learning Disorder Assesments</h1>
         <br/> </div>
     <div className="assesment">
+
+               {/* fundamental test hyperlink */}
+
         <div className="assesment-feature">
+            <img src="himages/autism.png" alt="" /><div className="overlay"></div>
+            <div className="discription">
+                <h3>AUTISM</h3>
+                <hr/>
+              <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link">  <p>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
+            </div>
+              {/* <h2>Fundamental Test </h2> */}
+              </div>
+
+
+
+
+
+
+        {/* <div className="assesment-feature">
            <img src="himages/dislexia.png" alt="" /><div className="overlay"></div>
             <div className="discription">
                 <h3>DISLEXIA</h3>
                 <hr/>
                 <a href="http://127.0.0.1:5500/pages/dyslexia/dyslexia.html"  className="overlay-link"> <p style={{marginTop:"10px"}}>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding). Also called reading disability, dyslexia affects areas of the brain that process language.</p></a>
             </div>
-        </div>
+        </div> */}
         {/* <div className="assesment-feature">
             <img src="himages/ADHD.png" alt="" /><div className="overlay"></div>
             <div className="discription">
@@ -59,13 +85,6 @@ export default function Home(props) {
                 <hr/>
              <a href="http://127.0.0.1:5500/pages/dispraxia/dispraxia.html"  className="overlay-link"> <p>Dyspraxia is a brain-based motor disorder.It affects fine and gross motor skills,motor planning and co-ordination </p></a>
             </div></div> */}
-        <div className="assesment-feature">
-            <img src="himages/autism.png" alt="" /><div className="overlay"></div>
-            <div className="discription">
-                <h3>AUTISM</h3>
-                <hr/>
-              <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link">  <p>Autism spectrum disorder is a condition related to brain development that impacts how a person perceives and socializes with others, causing problems in social interaction and communication. The disorder also includes limited and repetitive patterns of behavior.</p></a>
-            </div></div>
         {/* <div className="assesment-feature">
             <img src="himages/discalculia.png" alt="" /><div className="overlay"></div>
             <div className="discription">
@@ -76,6 +95,8 @@ export default function Home(props) {
             
             </div>
             </section>
+            <h2 style={firsttest}>.</h2>
+
 </>
   )
 }
