@@ -76,8 +76,25 @@ export default function Signup() {
                     <Form.Label><strong>Password Confirmation</strong></Form.Label>
                     <Form.Control type="password" ref={passwordConfirmRef} required />
                 </Form.Group>
+                <br />
 
-                <Form.Label><strong>Signup as an Organization</strong></Form.Label>
+                <Form.Group id="org-name">
+                    <Form.Label><strong>Oraganization Name</strong></Form.Label>
+                    <Form.Control type="text" required />
+                </Form.Group>
+                
+                <br />
+                <Form.Group id="ph-number">
+                    <Form.Label><strong>Phone Number</strong></Form.Label>
+                    <Form.Control type="number" required />
+                </Form.Group>
+                <br />
+                <Form.Group id="Address">
+                    <Form.Label><strong>Address</strong></Form.Label>
+                    <Form.Control type="text" required />
+                </Form.Group>
+
+                {/* <Form.Label><strong>Signup as an Organization</strong></Form.Label>
                 <Form.Check 
                     type="radio"
                     name="userType"
@@ -95,7 +112,7 @@ export default function Signup() {
                     onChange={() => {
                         setUserType("IND")
                     }} 
-                    required />
+                    required /> */}
 
                 <Button className="w-100 mt-4" type="submit" disabled={loading}>Sign Up</Button>
             </Form>

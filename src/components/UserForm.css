@@ -12,8 +12,11 @@
     margin: auto;
     background-color: whitesmoke;
     width: 300px;
-    height: 535px;
+    height: 700px;
     padding: 10px;
     display: center;
     border: 0.5rem outset #019587;
+    /* display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; */
   }
