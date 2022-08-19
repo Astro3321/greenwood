@@ -77,7 +77,7 @@ export default function OrgProfile() {
             </div>
             <div className="card mb-3 content" style={{background:"white"}}>
                 <div className="card-header">
-                <h1 className='m-3'>Recent Tests </h1>
+                <h1 className='m-3'>Students</h1>
                 <button type='button' className='btn btn-success' style={{width:"100px",float:"right"}} data-target="#mymodel" data-toggle="modal"> <strong>Add more</strong></button>
 
                 {/* add more model */}
@@ -95,14 +95,32 @@ export default function OrgProfile() {
                                         <input type="text" name="" id="" className='form-control' />
                                     </div>
                                     <div className="form-group">
-                                        <label > fathers Name</label>
-                                        <input type="text" name="" id="" className='form-control' />
-                                    </div>
-                                    <div className="form-group">
                                         <label >School Name</label>
                                         <input type="text" name="" id="" className='form-control' />
                                     </div>
-                               <div class="dropdown">
+                                    <div className="form-group">
+                                    <label >class</label>
+                                    <input type="text"  className='form-control' />
+                                    </div>
+                                    <div className="form-group">
+                                    <legend>Gender</legend>
+                                        <input type="radio" name="gender" id="male" value="male" checked />
+                                        <label for="male">Male:  </label>
+
+                                        <br />
+                                        <input type="radio" name="gender" id="female" value="female"/>
+                                        <label for="female">Female:  </label>
+                                  
+                                    </div>
+                                    <div className="form-group">
+                                        <label >student id:  </label>
+                                        <input type="number" name="" id="" className='form-control' />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Upload School id</label>
+                                        <input type="file" name="" id="" className='form-control' />
+                                    </div>
+                               {/* <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Test Name
                                 </button>
@@ -114,7 +132,7 @@ export default function OrgProfile() {
                                     <a class="dropdown-item" href="/">ADHD</a>
                                     <a class="dropdown-item" href="/">Autism</a>
                                 </div>
-</div>
+</div> */}
 
                                 </form>
                             </div>
