@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore'
+import { setDoc, doc } from 'firebase/firestore'
 import React,{useRef, useState} from 'react'
 import {Form, Button, Card, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,7 +11,9 @@ export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const [userType, setUserType] = useState(null)
+    const orgNameRef = useRef()
+    const addressRef = useRef()
+    const phoneNoRef = useRef()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
@@ -28,16 +30,17 @@ export default function Signup() {
             name: nameRef.current.value,
             email: emailRef.current.value,
             displayImage: "",
-            userType: userType
+            orgName: orgNameRef.current.value,
+            address: addressRef.current.value,
+            phoneNumber: phoneNoRef.current.value
         }
-
-        const userCollectionRef = collection(db, "users")
 
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-            await addDoc(userCollectionRef, userData)
+            console.log(userData)
+            const newUser = await signup(emailRef.current.value, passwordRef.current.value)
+            await setDoc(doc(db, "users", newUser.user.uid), userData)
             navigate("/")
         } catch(e) {
             setError(e.message)
@@ -80,18 +83,18 @@ export default function Signup() {
 
                 <Form.Group id="org-name">
                     <Form.Label><strong>Oraganization Name</strong></Form.Label>
-                    <Form.Control type="text" required />
+                    <Form.Control type="text" ref={orgNameRef} required />
                 </Form.Group>
                 
                 <br />
                 <Form.Group id="ph-number">
                     <Form.Label><strong>Phone Number</strong></Form.Label>
-                    <Form.Control type="number" required />
+                    <Form.Control type="number" ref={phoneNoRef} required />
                 </Form.Group>
                 <br />
                 <Form.Group id="Address">
                     <Form.Label><strong>Address</strong></Form.Label>
-                    <Form.Control type="text" required />
+                    <Form.Control type="textarea" ref={addressRef} required />
                 </Form.Group>
 
                 {/* <Form.Label><strong>Signup as an Organization</strong></Form.Label>
@@ -125,3 +128,4 @@ export default function Signup() {
     <br></br>
     </>)
 }
+
