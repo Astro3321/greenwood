@@ -4,6 +4,8 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore"
 import { db } from "../config/firebase-config"
 import "./assessment.css"
 import { Button, Form, Table } from 'react-bootstrap'
+import { Modal } from "react-bootstrap"
+
 
 
 function DisplayQuestionTable({ data }) {
@@ -51,6 +53,8 @@ function DisplayQuestionTable({ data }) {
     setLoading(false)
   }
 
+  
+  
   return (
     <div className="Assessment">
     <center> 
@@ -78,6 +82,10 @@ function DisplayQuestionTable({ data }) {
 
 export default function Assessment() {
   const [data, setData] = useState()
+  const [show, setShow] = useState(true);
+  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const loadData= async () => {
@@ -87,10 +95,27 @@ export default function Assessment() {
         ))
 
       setData(docData)
+      handleShow()
     }
     
     loadData()
   }, [])
 
-  return <>{data && <DisplayQuestionTable data={data} />}</>
+  return <>{data && <DisplayQuestionTable data={data} />}
+  
+  <Modal show={show}>
+        <Modal.Header closeButton>
+          <Modal.Title>STUDENTS</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+        </Modal.Footer>
+  </Modal>
+  
+  
+  
+  
+  
+  </>
 }

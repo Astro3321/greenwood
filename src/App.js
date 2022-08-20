@@ -14,6 +14,7 @@ import RecentTest from "./components/RecentTest"
 import Result from "./components/Result"
 import OrgSignup from "./components/OrgSignup"
 import OrgProfile from "./components/OrgProfile"
+import { Modal } from "react-bootstrap"
 
 export default function App() {
 	const fontStyles = {
