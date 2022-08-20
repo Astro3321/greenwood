@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from '../config/firebase-config'
 import { getDoc, doc } from '@firebase/firestore'
 import { Button } from 'react-bootstrap'
+import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
+import { scryRenderedDOMComponentsWithClass } from 'react-dom/test-utils'
 
 
 export default function OrgProfile() {
     const [error, setError] = useState('')
     const [data, setData] = useState([])
+    const [studentList, setStudentList] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [show, setShow] = useState(true)
+    const nameRef = useRef()
+    const classRef = useRef()
+    const ageRef = useRef()
+    const [gender, setGender] = useState("M")
     const { currentUser, logout } = useAuth()
     const navigate = useNavigate()
 
@@ -18,8 +27,38 @@ export default function OrgProfile() {
             setData(queryData.data())
         }
 
+        const loadStudentList = async() => {
+            const studentRef = collection(db, "students")
+            const q = query(studentRef, where("orgID", "==", currentUser.uid))
+            const querySnapshot = await getDocs(q)
+
+            const queryData = querySnapshot.docs.map((doc) => (
+                doc.data()
+            ))
+
+            setStudentList(queryData)
+        }
+
         loadData()
+        loadStudentList()
     }, [])  
+    
+    const showStudentList = studentList.map((std) => (
+        <div className="row">
+            <div className="col-md-2">
+                <h5>{std.name}</h5>
+            </div>
+            <div className="col-md-2">
+                <h5>{std.class}</h5>
+            </div>
+            <div className="col-md-2">
+                <h5>{std.age}</h5>
+            </div>
+            <div className="col-md-2">
+                <h5>{std.gender}</h5>
+            </div>
+        </div>
+    ))
 
     async function handleLogout(event){
         event.preventDefault()
@@ -31,6 +70,33 @@ export default function OrgProfile() {
         } catch(e) {
             setError(e.message)
         }
+    }
+
+    async function handleSubmit(event){
+        event.preventDefault()
+
+        const studentData = {
+            name: nameRef.current.value,
+            age: ageRef.current.value,
+            class: classRef.current.value,
+            gender: gender,
+            orgID: currentUser.uid,
+            orgName: data.orgName
+        }
+
+        const studentCollection = collection(db, "students")
+        try{
+            setLoading(true)
+            setError('')
+            await addDoc(studentCollection, studentData)
+        } catch(err) {
+            setError(err.message)
+        } finally {
+            setLoading(false)
+            setShow(false)
+        }
+
+        console.log(studentData)
     }
 
     return (
@@ -88,14 +154,14 @@ export default function OrgProfile() {
                             </div>
                         </div>
 
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="col-md-3">
                                 <h5>Organization Id</h5>
                             </div>
                             <div className="col-md-9 text-secondary">
                             bbbffb
                             </div>
-                        </div>
+                        </div> */}
                         {/* <div className="row">
                             <div className="col-md-3">
                                 <h5>Conductor Name</h5>
@@ -112,18 +178,18 @@ export default function OrgProfile() {
                     <button type='button' className='btn btn-success' style={{width:"100px",float:"right"}} data-target="#mymodel" data-toggle="modal"> <strong>Add more</strong></button>
 
                     {/* add more model */}
-                    <div className="modal" id='mymodel'>
+                    <div show={show} className="modal" id='mymodel'>
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h3 className="text-dark">Student Information</h3>
                                     <button className="close" type='button' data-dismiss="modal"> &times; </button>
                                 </div>
-                                <div className="modal-body">
-                                    <form >
+                                <form onSubmit={handleSubmit}>
+                                    <div className="modal-body">
                                         <div className="form-group">
                                             <label >Name</label>
-                                            <input type="text" name="" id="" className='form-control' />
+                                            <input type="text" name="" id="" ref={nameRef} required className='form-control' />
                                         </div>
                                         <div className="form-group">
                                             <label >School Name</label>
@@ -131,20 +197,28 @@ export default function OrgProfile() {
                                         </div>
                                         <div className="form-group">
                                         <label >class</label>
-                                        <input type="text"  className='form-control' />
+                                        <input type="text" ref={classRef} required className='form-control' />
                                         </div>
                                         <div className="form-group">
                                         <label >Age</label>
-                                        <input type="number"  className='form-control' />
+                                        <input type="number" ref={ageRef} required className='form-control' />
                                         </div>
                                         <div className="form-group">
                                         <legend>Gender</legend>
-                                            <input type="radio" name="gender" id="male" value="male" checked />
-                                            <label for="male">Male:  </label>
+                                            <input type="radio" name="gender" id="male" value="male" defaultChecked onClick={
+                                                () => {
+                                                    setGender("M")
+                                                }
+                                            }/>
+                                            <label for="male">Male</label>
 
                                             <br />
-                                            <input type="radio" name="gender" id="female" value="female"/>
-                                            <label for="female">Female:  </label>
+                                            <input type="radio" name="gender" id="female" value="female" onClick={
+                                                () => {
+                                                    setGender("F")
+                                                }
+                                            }/>
+                                            <label for="female">Female</label>
                                     
                                         </div>
                                         <div className="form-group">
@@ -170,12 +244,12 @@ export default function OrgProfile() {
                                     </div>
     </div> */}
 
-                                    </form>
-                                </div>
+                                    </div>
 
-                                <div className="modal-footer">
-                                    <button className="btn btn-success">conduct test</button>
-                                </div>
+                                    <div className="modal-footer">
+                                        <button type="submit" className="btn btn-success">Add</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -194,19 +268,10 @@ export default function OrgProfile() {
                             <div className="col-md-2">
                                 <h5>Gender</h5>
                             </div>
-                            
-                            <div className="col-md-2">
-                                <h5>Student ID</h5>
-                            </div>
-                            
-                            <div className="col-md-2">
-                                <h5>Organization ID</h5>
-                            </div>
-                            
-                            <div className="col-md-9 text-secondary">
-                                Test description
-                            </div>
                         </div>
+
+                        {showStudentList}
+
                     </div>
                 </div>
             </div>
