@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
-import { collection, getDocs, orderBy, query } from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 import { db } from "../config/firebase-config"
 import "./assessment.css"
 import { Button, Form, Table } from 'react-bootstrap'
 import { Modal } from "react-bootstrap"
+import { useNavigate } from 'react-router-dom'
 
 
 
 function DisplayQuestionTable({ data }) {
   const [loading, setLoading] = useState(false)
-  var ans = Array(40).fill(0)
+  var ans = Array(70).fill(0)
+  var resText = {disorder: "", risk: ""}
+  const navigate = useNavigate()
 
   const showQuestions = data.map((obj, index) => (
-    <tr>
+    <tr key={`${index}`}>
         <td>{index + 1}</td>
         <td><span>{obj.question}</span></td>
 
@@ -49,16 +51,56 @@ function DisplayQuestionTable({ data }) {
   function handleSubmit(event){
     event.preventDefault()
     setLoading(true)
-    console.log(ans)
+    
+    //Autism Detection
+    const sumAutism = ans.slice(0, 41).reduce((partialSum, a) => partialSum + a, 0)
+    if (sumAutism < 70){ resText.disorder = "Autism"; resText.risk = 0 }
+    else if (sumAutism > 70 && sumAutism <= 106){ resText.disorder = "Autism"; resText.risk = 1 }
+    else if (sumAutism > 107 && sumAutism <= 153){ resText.disorder = "Autism"; resText.risk = 2 }
+    if (sumAutism > 153){ resText.disorder = "Autism"; resText.risk = 3 }
+
+    //Dyslexia Detection
+    const sumDyslexia = ans.slice(41, 71).reduce((partialSum, a) => partialSum + a, 0)
+    const probability = (sumDyslexia / 120) * 100
+    if (probabiltiy <= 25){ resText.disorder = "Dyslexia"; resText.risk = 0}
+    if (probabiltiy > 25 && probability <= 50){ 
+      if(resText.risk < 1){
+        resText.disorder = "Dyslexia"
+        resText.risk = 1
+      }
+      if(resText.risk === 1){
+        resText.disorder="Autism and Dyslexia"
+      }
+    }
+    if (probabiltiy > 50 && probability <=75){ 
+      if(resText.risk < 2){
+        resText.disorder = "Dyslexia"
+        resText.risk = 2
+      }
+      if(resText.risk === 2){
+        resText.disorder="Autism and Dyslexia"
+      }
+    }
+    if (probabiltiy > 75){ 
+      if(resText.risk < 3){
+        resText.disorder = "Dyslexia"
+        resText.risk = 3
+      }
+      if(resText.risk === 3){
+        resText.disorder="Autism and Dyslexia"
+      }
+    }
+
+    console.log(resText)
+    navigate("/result", {state:{res: resText}})
+
     setLoading(false)
   }
-
-  
   
   return (
     <div className="Assessment">
     <center> 
-      <h1>Quiz A</h1>
+      <h1 className="mb-4 mt-4">Questionaaire</h1>
     </center>
 
     <Form onSubmit={handleSubmit}>
@@ -73,8 +115,9 @@ function DisplayQuestionTable({ data }) {
       </Table>
 
       <Button className="d-flex mx-auto justify-content-center" style={{width: "15rem"}} type="submit" disabled={loading}>
-        Result
-      </Button>
+        Result</Button>
+
+      <div>{resText}</div>
     </Form>
    </div>
   )
@@ -89,12 +132,17 @@ export default function Assessment() {
 
   useEffect(() => {
     const loadData= async () => {
-      const res = await getDocs(collection(db, "autism"))
-      const docData = res.docs.map((doc) => (
+      const resAutism = await getDocs(collection(db, "autism"))
+      const resDyslexia = await getDocs(collection(db, "dyslexia"))
+      const docDataAutism = resAutism.docs.map((doc) => (
         doc.data()
         ))
 
-      setData(docData)
+      const docDataDyslexia = resDyslexia.docs.map((doc) => (
+        doc.data()
+        ))
+
+      setData(docDataAutism.concat(docDataDyslexia))
       handleShow()
     }
     
@@ -127,13 +175,8 @@ export default function Assessment() {
           </div>
            </Modal.Body>
         <Modal.Footer>
-          {/* <Button variant="secondary">Close</Button> */}
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
   </Modal>
-  
-  
-  
-  
-  
   </>
 }
