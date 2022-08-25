@@ -1,6 +1,6 @@
 import { setDoc, doc } from 'firebase/firestore'
 import React,{useRef, useState} from 'react'
-import {Form, Button, Card, Alert } from 'react-bootstrap'
+import {Form, Button, Card, Alert, Row, Col } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../config/firebase-config"
@@ -56,46 +56,62 @@ export default function Signup() {
         <Card.Body style={{background:"white"}}>
             <h1 className='text-center mb-4'><strong>Sign Up</strong></h1>
             {error && <Alert variant="danger">{error}</Alert>}
-
             <Form onSubmit={handleSubmit}>
-                <Form.Group id="name">
-                    <Form.Label><strong>Name</strong></Form.Label>
-                    <Form.Control type="text" ref={nameRef} required />
-                </Form.Group>
+                <Row>
+                    <Col>
+                        <Form.Group id="name">
+                            <Form.Label><strong>Name</strong></Form.Label>
+                            <Form.Control type="text" ref={nameRef} required />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group id="email">
+                            <Form.Label><strong>Email</strong></Form.Label>
+                            <Form.Control type="email" ref={emailRef} required />
+                        </Form.Group>
+                    </Col>
+                </Row>
 
-                <Form.Group id="email">
-                    <Form.Label><strong>Email</strong></Form.Label>
-                    <Form.Control type="email" ref={emailRef} required />
-                </Form.Group>
+                <Row> 
+                    <Col>
+                        <br />
+                        <Form.Group id="password">
+                            <Form.Label><strong>Password</strong></Form.Label>
+                            <Form.Control type="password" ref={passwordRef} required />
+                        </Form.Group>
 
-                <br />
-                <Form.Group id="password">
-                    <Form.Label><strong>Password</strong></Form.Label>
-                    <Form.Control type="password" ref={passwordRef} required />
-                </Form.Group>
-
-                <br />
-                <Form.Group id="password-confirm">
-                    <Form.Label><strong>Password Confirmation</strong></Form.Label>
-                    <Form.Control type="password" ref={passwordConfirmRef} required />
-                </Form.Group>
-                <br />
-
-                <Form.Group id="org-name">
-                    <Form.Label><strong>Oraganization Name</strong></Form.Label>
-                    <Form.Control type="text" ref={orgNameRef} required />
-                </Form.Group>
-                
-                <br />
-                <Form.Group id="ph-number">
-                    <Form.Label><strong>Phone Number</strong></Form.Label>
-                    <Form.Control type="number" ref={phoneNoRef} required />
-                </Form.Group>
+                    </Col>
+                    <Col> 
+                        <br />
+                        <Form.Group id="password-confirm">
+                            <Form.Label><strong>Password Confirmation</strong></Form.Label>
+                            <Form.Control type="password" ref={passwordConfirmRef} required />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row> 
+                     <Col>
+                        <br />
+                        <Form.Group id="org-name">
+                            <Form.Label><strong>Oraganization Name</strong></Form.Label>
+                            <Form.Control type="text" ref={orgNameRef} required />
+                        </Form.Group>
+                     </Col>
+                     <Col> 
+                        <br />
+                        <Form.Group id="ph-number">
+                            <Form.Label><strong>Phone Number</strong></Form.Label>
+                            <Form.Control type="number" ref={phoneNoRef} required />
+                        </Form.Group> 
+                     </Col>   
+                </Row>
+                <Row>
                 <br />
                 <Form.Group id="Address">
                     <Form.Label><strong>Address</strong></Form.Label>
                     <Form.Control type="textarea" ref={addressRef} required />
                 </Form.Group>
+                </Row>
 
                 {/* <Form.Label><strong>Signup as an Organization</strong></Form.Label>
                 <Form.Check 
