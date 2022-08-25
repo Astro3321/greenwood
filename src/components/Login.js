@@ -3,8 +3,10 @@ import {Form, Button, Card, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import "./UserForm.css"
+import bgimg from "../images/25.08.2022_19.13.44_REC.png"
 
-export default function Login() {
+
+export default function Login(props) {
   const emailRef = useRef()
   const passwordRef = useRef()
   const [loading, setLoading] = useState(false)
@@ -36,10 +38,19 @@ export default function Login() {
 
     setLoading(false)
   }
+
+
+    const banner = {
+        background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${bgimg}) no-repeat center center / cover`, /*/url */
+              
+    };
+
+  
   
   return (<>
+     <div    style={banner}>
   <br></br>
-  <div className="square1" style={{background:"#20c997",border:"2px solid white"}}>
+  <div className="square1" >
     <Card >
       <Card.Body style={{background:"white"}}>
       <h1 className='text-center mb-4'><strong>Login</strong></h1>
@@ -55,15 +66,17 @@ export default function Login() {
               <Form.Control type="password" ref={passwordRef} required />
           </Form.Group>
           <br></br>
-          <Button className="w-100" type="submit" disabled={loading}>Login</Button>
+          <Button  className="w-100" type="submit" disabled={loading}>Login</Button>
         </Form>
       </Card.Body>
     </Card>
     <div className="w-100 text-center mt-2 text-dark">
-      <strong> Need an Account? <Link className='btn btn-light'  to="/signup">Sign Up</Link></strong>
+      <strong> Need an Account? <Link  to="/signup">Sign Up</Link></strong>
     </div>
     </div>
     <br></br>
+
+    {/* </section> */}  </div>
   </>)
 }
  

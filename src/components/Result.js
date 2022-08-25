@@ -24,6 +24,41 @@ return(
                 <h1>Result</h1>
             </center>
 
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2"><strong>Disorder</strong></h3>
+                                {/* <p class="fs-5">userType</p> */}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2"><strong>severity</strong></h3>
+                                {/* <p class="fs-5">userType</p> */}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2"><strong>Test suggested</strong></h3>
+                                {/* <p class="fs-5">userType</p> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+                    <br /><br /><br />
+
+                    <center>
+                <h1>Questionaire Result</h1>
+            </center>
+
             <Table respponsive bordered hover size="sm">
                 <thead>
                     {showHeading}
@@ -33,7 +68,7 @@ return(
                 </tbody>
             </Table>
         </div>
-    )
+         )
 }
 
 export default function Result() {
