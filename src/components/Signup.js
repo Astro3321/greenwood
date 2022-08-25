@@ -1,6 +1,6 @@
 import { setDoc, doc } from 'firebase/firestore'
 import React,{useRef, useState} from 'react'
-import {Form, Button, Card, Alert } from 'react-bootstrap'
+import {Form, Button, Card, Alert,Row, Col } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../config/firebase-config"
@@ -58,16 +58,20 @@ export default function Signup() {
             {error && <Alert variant="danger">{error}</Alert>}
 
             <Form onSubmit={handleSubmit}>
+              
+              
+            
                 <Form.Group id="name">
                     <Form.Label><strong>Name</strong></Form.Label>
                     <Form.Control type="text" ref={nameRef} required />
                 </Form.Group>
-
+            
+                  
                 <Form.Group id="email">
                     <Form.Label><strong>Email</strong></Form.Label>
                     <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
-
+                
                 <br />
                 <Form.Group id="password">
                     <Form.Label><strong>Password</strong></Form.Label>
