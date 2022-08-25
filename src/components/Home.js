@@ -44,7 +44,7 @@ export default function Home(props) {
         <div className="assesment-feature">
             <img src="himages/autism.png" alt="" /><div className="overlay"></div>
             <div className="discription">
-                <h3>AUTISM</h3>
+                <h3>FUNDAMENTAL TEST</h3>
                 <hr/>
               <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link">  <p>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
             </div>

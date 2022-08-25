@@ -104,12 +104,12 @@ export default function Assessment() {
   return <>{data && <DisplayQuestionTable data={data} />}
   
   <Modal show={show}>
-        <Modal.Header closeButton>
+        <Modal.Header >
           <Modal.Title>STUDENTS</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>     Studenrts list </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          {/* <Button variant="secondary">Close</Button> */}
         </Modal.Footer>
   </Modal>
   
