@@ -105,34 +105,13 @@ export default function Signup() {
                         </Form.Group> 
                      </Col>   
                 </Row>
-                <Row>
+                <Row> 
                 <br />
                 <Form.Group id="Address">
                     <Form.Label><strong>Address</strong></Form.Label>
                     <Form.Control type="textarea" ref={addressRef} required />
                 </Form.Group>
                 </Row>
-
-                {/* <Form.Label><strong>Signup as an Organization</strong></Form.Label>
-                <Form.Check 
-                    type="radio"
-                    name="userType"
-                    label="Yes"
-                    value="true"
-                    onChange={() => {
-                        setUserType("ORG")
-                    }}
-                    required />
-                <Form.Check
-                    type="radio"
-                    name="userType"
-                    label="No"
-                    value="false"
-                    onChange={() => {
-                        setUserType("IND")
-                    }} 
-                    required /> */}
-
                 <Button className="w-100 mt-4" type="submit" disabled={loading}>Sign Up</Button>
             </Form>
         </Card.Body>

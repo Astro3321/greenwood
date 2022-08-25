@@ -107,7 +107,25 @@ export default function Assessment() {
         <Modal.Header >
           <Modal.Title>STUDENTS</Modal.Title>
         </Modal.Header>
-        <Modal.Body>     Studenrts list </Modal.Body>
+        <Modal.Body>    
+        <div className="card-body">
+                        <div className="row">
+                            <div className="col-md-2">
+                                <h5>Student name</h5>
+                            </div>
+                            <div className="col-md-2">
+                                <h5>class</h5>
+                            </div>
+                            <div className="col-md-2">
+                                <h5>Age</h5>
+                            </div>
+                            <div className="col-md-2">
+                                <h5>Gender</h5>
+                            </div>
+                        </div>
+          
+          </div>
+           </Modal.Body>
         <Modal.Footer>
           {/* <Button variant="secondary">Close</Button> */}
         </Modal.Footer>
