@@ -18,7 +18,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
   const [resDyslexia, setResDyslexia] = useState()
 
   const [res, setRes] = useState()
-  var ans = Array(70).fill(5)
+  var ans = Array(70).fill(0)
   const navigate = useNavigate()
 
   const showQuestions = data.map((obj, index) => (
@@ -39,7 +39,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 4}} required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
-          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}}  defaultChecked={true}required/>
+          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}}  required/>
         </div></td>
       </tr>
   ))
@@ -62,9 +62,10 @@ function DisplayQuestionTable({ data, currentStudentID }) {
     const sum = ans.reduce((partialSum, a) => partialSum + a, 0)
     if (sum >= 70 && sum < 110){setRes("Normal")}
     if (sum >= 110 && sum < 180){setRes("Severe Autism")}
-    if (sum >= 181 && sum < 260){setRes("Moderate Autism and Mild Dyslexia")}
+    if (sum >= 181 && sum < 220){setRes("Moderate Autism and Mild Dyslexia")}
+    if (sum >= 221 && sum < 260){setRes("Mild Autism and Moderate Dyslexia")}
     if (sum >= 261 && sum < 330){setRes("Mild Dyslexia")}
-    if (sum >= 331 && sum < 350){setRes("Severe Dyslexia")}
+    if (sum >= 331 && sum <= 350){setRes("Severe Dyslexia")}
     
     //Autism Detection
     // const sumAutism = ans.slice(0, 41).reduce((partialSum, a) => partialSum + a, 0)
