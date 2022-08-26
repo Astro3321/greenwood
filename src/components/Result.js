@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Container, Row, Col, ProgressBar, Table } from 'react-bootstrap'
 import Chart from 'react-apexcharts';
+import { useEffect } from 'react';
 
 
 
@@ -56,7 +57,7 @@ return(
                     
                     <br /><br /><br />
 
-                    <Chart  type="bar" width={980} height={300}  style={{alignitem:"center", margin:"auto"}}
+                    <Chart  type="bar" width={980} height={300}  
                     
                     series={[
                         {
@@ -90,13 +91,25 @@ return(
 }
 
 export default function Result() {
-    const data = [{
-        question: "Question 1",
-        answer: "Answer 1"
-    }, {
-        question: "Question 2",
-        answer: "Answer 2"
-    }]
+    
+
+    useEffect(() =>{
+        const loadStudentList = async() => {
+            const studentRef = collection(db, "students")
+            const q = query(studentRef, where("orgID", "==", currentStudentID))
+            const querySnapshot = await getDocs(q)
+
+            const queryData = querySnapshot.docs.map((doc) => (
+                doc.data()
+            ))
+
+            setStudentList(queryData)
+        }
+
+
+
+
+    },[])
 
     return <DisplayResultTable data={data}/>
 }

@@ -221,14 +221,14 @@ export default function OrgProfile() {
                                             <label for="female">Female</label>
                                     
                                         </div>
-                                        <div className="form-group">
+                                        {/* <div className="form-group">
                                             <label >organisation Name </label>
                                             <input type="text" name="" id="" className='form-control' />
                                         </div>
                                         <div className="form-group">
                                             <label >organisation Id:  </label>
                                             <input type="number" name="" id="" className='form-control' />
-                                        </div>
+                                        </div> */}
                                        
                                 {/* <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
