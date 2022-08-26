@@ -14,6 +14,7 @@ import RecentTest from "./components/RecentTest"
 import Result from "./components/Result"
 import OrgSignup from "./components/OrgSignup"
 import OrgProfile from "./components/OrgProfile"
+import Model from "./components/Model"
 import { Modal, Dropdown } from "react-bootstrap"
 
 export default function App() {
@@ -40,8 +41,8 @@ export default function App() {
 									</Dropdown.Toggle>
 
 									<Dropdown.Menu>
-										<Dropdown.Item href="/tests">Basic Test</Dropdown.Item>
-										<Dropdown.Item href="#/action-2">Advanced Test</Dropdown.Item>
+										<Dropdown.Item href="/test/basic">Basic Test</Dropdown.Item>
+										<Dropdown.Item href="/test/advanced/model">Advanced Test</Dropdown.Item>
 										
 									</Dropdown.Menu>
 								</Dropdown>
@@ -59,14 +60,15 @@ export default function App() {
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/login" element={<Login />}></Route> Login
 					<Route path="/signup" element={<Signup />}></Route> Signup
-					<Route path="/profile" element={<Profile />}></Route> Profile
+					<Route path="/profile" element={<OrgProfile/>}></Route> Profile
 					{/* <Route path="/about" element={<About />}></Route> About */}
-					<Route path="/tests" element={<Assessment />}></Route> Assessment
+					<Route path="/test/basic" element={<Assessment />}></Route> Assessment
 					<Route path="/update-profile" element={<UpdateProfile/>}></Route> UpdateProfile
 					<Route path="/tests/recent" element={<RecentTest/>}></Route> Recent Test
 					<Route path="/result" element={<Result />}></Route> Result
 					<Route path="/OrgSignup" element={<OrgSignup/>}></Route> Organiation signup
-					<Route path="/profile/organizaton" element={<OrgProfile/>}></Route> Organisation profile
+					<Route path="/test/advanced/model" element={<Model/>}></Route> ML Model
+					{/* <Route path="/profile/organizaton" element={<OrgProfile/>}></Route> Organisation profile */}
 				</Routes>
 				<Footer />
 			</AuthProvider>

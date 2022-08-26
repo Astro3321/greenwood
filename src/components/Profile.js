@@ -43,7 +43,7 @@ export default function Profile(props) {
                     <div className="mt-3">
                         <h3>{data.name}</h3><br /><br />
                         <a href="/">Home</a><br /><br />
-                        <a href="/">Tests</a><br /><br />
+                        <a href="/test/basic">Tests</a><br /><br />
                         <a href="/update-profile">UpdateProfile</a><br /><br />
                         <Button variant="link" onClick={handleLogout}>Logout</Button>
                     </div>

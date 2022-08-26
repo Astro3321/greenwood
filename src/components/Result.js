@@ -49,7 +49,7 @@ return(
                     <div className="col-md-4">
                         <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className="fs-2"><strong>Test suggested</strong></h3>
+                                <h3 className="fs-2"><strong> Advance Test</strong></h3>
                                 {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>

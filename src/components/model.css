@@ -1,0 +1,69 @@
+.assesment{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+.assesment-feature{
+    flex-basis: 40%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+}
+.assesment-feature img{
+    width: 100%;
+    border-radius: 7px;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    background: linear-gradient(rgb(0,0,0,0.5),#96dfd7) ;
+    opacity: 0;
+    transition: 1s;
+}
+.assesment-feature:hover .overlay{
+    opacity: 1;
+}
+.discription{
+    width: 80%;
+    position:absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+}
+hr{
+    background: white;
+    height: 2px;
+    border: 0;
+    margin: 15px auto;
+    width: 60%;
+}
+.discription p{
+    font-size: 14px;
+    margin-bottom: -2rem;
+
+}
+.assesment-feature:hover .discription{
+    bottom: 40%;
+    opacity: 1;
+}
+.overlay-link{
+    text-decoration: none;
+    color: #fff;
+
+}
+
+.section{
+    margin: auto;
+    margin-top: 8px;
+
+}
