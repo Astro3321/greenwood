@@ -10,9 +10,15 @@ import { useAuth } from "../contexts/AuthContext"
 function DisplayQuestionTable({ data, currentStudentID }) {
   // console.log(currentStudentID)
   const [loading, setLoading] = useState(false)
-  const [resDisorder, setResDisorder] = useState()
-  const [resRisk, setResRisk] = useState()
-  var ans = Array(70).fill(0)
+  const [resDisorder, setResDisorder] = useState("null")
+  const [resRisk, setResRisk] = useState(0)
+  const [resAutism, setResAutism] = useState()
+  const [autismRisk, setAutismRisk] = useState()
+  const [dyslexiaRisk, setDyslexiaRisk] = useState()
+  const [resDyslexia, setResDyslexia] = useState()
+
+  const [res, setRes] = useState()
+  var ans = Array(70).fill(5)
   const navigate = useNavigate()
 
   const showQuestions = data.map((obj, index) => (
@@ -21,7 +27,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
         <td><span>{obj.question}</span></td>
 
         <td><div className="d-flex justify-content-center">
-          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}} required/>
+          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}}  required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 2}} required/>
@@ -33,7 +39,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 4}} required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
-          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}} required/>
+          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}}  defaultChecked={true}required/>
         </div></td>
       </tr>
   ))
@@ -52,49 +58,52 @@ function DisplayQuestionTable({ data, currentStudentID }) {
   async function handleSubmit(event){
     event.preventDefault()
     setLoading(true)
+
+    const sum = ans.reduce((partialSum, a) => partialSum + a, 0)
+    if (sum >= 70 && sum < 110){setRes("Normal")}
+    if (sum >= 110 && sum < 180){setRes("Severe Autism")}
+    if (sum >= 181 && sum < 260){setRes("Moderate Autism and Mild Dyslexia")}
+    if (sum >= 261 && sum < 330){setRes("Mild Dyslexia")}
+    if (sum >= 331 && sum < 350){setRes("Severe Dyslexia")}
     
     //Autism Detection
-    const sumAutism = ans.slice(0, 41).reduce((partialSum, a) => partialSum + a, 0)
-    if (sumAutism < 70){ setResDisorder("Autism"); setResRisk(0) }
-    else if (sumAutism > 70 && sumAutism <= 106){ setResDisorder("Autism"); setResRisk(1) }
-    else if (sumAutism > 107 && sumAutism <= 153){ setResDisorder("Autism"); setResRisk(2) }
-    if (sumAutism > 153){ setResDisorder("Autism"); setResRisk(3) }
+    // const sumAutism = ans.slice(0, 41).reduce((partialSum, a) => partialSum + a, 0)
+    // if (sumAutism < 70){ setResAutism("Autism"); setAutismRisk(0) }
+    // else if (sumAutism > 70 && sumAutism <= 106){ setResAutism("Autism"); setAutismRisk(1) }
+    // else if (sumAutism > 107 && sumAutism <= 153){ setResAutism("Autism"); setAutismRisk(2) }
+    // if (sumAutism > 153){ setResAutism("Autism"); setAutismRisk(3) }
 
-    //Dyslexia Detection
-    const sumDyslexia = ans.slice(41, 71).reduce((partialSum, a) => partialSum + a, 0)
-    const probability = (sumDyslexia / 120) * 100
-    if (probability <= 25){ setResDisorder("Dyslexia"); setResRisk(0)}
-    if (probability > 25 && probability <= 50){ 
-      if(resRisk < 1){
-        setResDisorder("Dyslexia")
-        setResRisk(1)
-      }
-      if(resRisk === 1){
-        setResDisorder("Autism and Dyslexia")
+    // console.log(sumAutism)
 
-      }
-    }
-    if (probability > 50 && probability <=75){ 
-      if(resRisk < 2){
-        setResDisorder("Dyslexia")
-        setResRisk(2)
-      }
-      if(resRisk === 2){
-        setResDisorder("Autism and Dyslexia")
-      }
-    }
-    if (probability > 75){ 
-      if(resRisk < 3){
-        setResDisorder("Dyslexia")
-        setResRisk(3)
-      }
-      if(resRisk === 3){
-        setResDisorder("Autism and Dyslexia")
-      }
-    }
+    // // Dyslexia Detection
+    
+    // const sumDyslexia = ans.slice(41, 71).reduce((partialSum, a) => partialSum + a, 0)
+    // console.log(sumDyslexia)
+    // const probability = (sumDyslexia / 150) * 100
+    // console.log(probability)
+    // if (probability <= 25){ setResDyslexia("Dyslexia"); setDyslexiaRisk(0)}
+    // if (probability > 25 && probability <= 50){ 
+    //   setResDyslexia("Dyslexia")
+    //   setDyslexiaRisk(1)
+    // }
+    // if (probability > 50 && probability <=75){ 
+    //   setResDyslexia("Dyslexia")
+    //   setDyslexiaRisk(2)
+    // }
+    // if (probability > 75){ 
+    //   setResDyslexia("Dyslexia")
+    //   setDyslexiaRisk(3)
+    // }
 
-    console.log(resRisk)
-    console.log(resDisorder)
+    // console.log(autismRisk)
+    // console.log(resAutism)
+    // console.log("......")
+    // console.log(dyslexiaRisk)
+    // console.log(resDyslexia)
+    // console.log("......")
+
+    console.log(res)
+
     // await updateDoc(doc(db, "students", currentStudentID), {
     //   recentTest: arrayUnion({
     //     disorder: resDisorder,
