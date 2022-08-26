@@ -1,7 +1,7 @@
 import React from 'react'
 import "../App.css"
 import CoverImg from "../images/CoverImg.png"
-
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 export default function Home(props) {
 
@@ -26,6 +26,7 @@ export default function Home(props) {
             <h1 style={{fontfamily:"'Kaushan Script', cursive"}}><b>Green wood</b></h1>    
             <p>Never doubt your abilities</p>
             <div className="banner-btn">
+                
                 <a href="http://127.0.0.1:5500/pages/greenwood/Greenwood.html" ><span></span><b>Read More</b></a>
             </div>
         </div>

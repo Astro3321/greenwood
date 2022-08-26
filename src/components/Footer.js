@@ -21,7 +21,7 @@ export default function Footer(props) {
         <div className="container text-center text-md-left mt-5">
             <div className="row">
                 <div className="col-md-3 mx-auto mb-4">
-                    <h6 className="text-uppercase font-weight-bold text-light">Thank You</h6>
+                    <h6 className="text-uppercase font-weight-bold text-light"></h6>
                     <hr className='bg-success mb-4 mt-0 d-inline-block mx-auto' />
                 </div>
             </div>
