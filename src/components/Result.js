@@ -1,10 +1,10 @@
-import React from 'react'
-import { Card, Container, Row, Col, ProgressBar, Table } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Table } from 'react-bootstrap'
 import Chart from 'react-apexcharts';
+import { useLocation } from 'react-router-dom'; 
 
-
-
-function DisplayResultTable({ data }) {
+function DisplayResultTable({ data, disorder, risk}) {
+    const {state } = useLocation()
     const showQuestion = data.map((obj,index) => (
         <tr>
             <td>{index + 1}</td>
@@ -19,35 +19,38 @@ function DisplayResultTable({ data }) {
         <th>Answer</th>
     </tr>
 
+    // console.log(location.state.risk)
+    // console.log(location.state.resDisorder)
+
 return(
     <div>
             <center>
                 <h1>Result</h1>
             </center>
 
-            <div class="container-fluid px-4">
-                <div class="row g-3 my-2">
-                    <div class="col-md-4">
-                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+            <div className="container-fluid px-4">
+                <div className="row g-3 my-2">
+                    <div className="col-md-4">
+                        <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2"><strong>Disorder</strong></h3>
-                                {/* <p class="fs-5">userType</p> */}
+                                <h3 className="fs-2"><strong>{disorder}</strong></h3>
+                                {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div className="col-md-4">
+                        <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2"><strong>severity</strong></h3>
-                                {/* <p class="fs-5">userType</p> */}
+                                <h3 className="fs-2"><strong>{risk}</strong></h3>
+                                {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div className="col-md-4">
+                        <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2"><strong>Test suggested</strong></h3>
-                                {/* <p class="fs-5">userType</p> */}
+                                <h3 className="fs-2"><strong>Test suggested</strong></h3>
+                                {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
                     </div>
@@ -90,13 +93,7 @@ return(
 }
 
 export default function Result() {
-    const data = [{
-        question: "Question 1",
-        answer: "Answer 1"
-    }, {
-        question: "Question 2",
-        answer: "Answer 2"
-    }]
-
-    return <DisplayResultTable data={data}/>
+    const location = useLocation()
+    const data = []
+    return <DisplayResultTable data={data} disorder={location.state.disorder} risk={location.state.risk}/>
 }

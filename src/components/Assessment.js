@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { collection, getDocs } from "firebase/firestore"
+import { arrayUnion, collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import { db } from "../config/firebase-config"
 import "./assessment.css"
 import { Button, Form, Table } from 'react-bootstrap'
 import { Modal } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from "../contexts/AuthContext"
 
-function DisplayQuestionTable({ data }) {
+function DisplayQuestionTable({ data, currentStudentID }) {
+  // console.log(currentStudentID)
   const [loading, setLoading] = useState(false)
-  const [resDisorder, setResDisorder] = useState("")
-  const [resRisk, setResRisk] = useState("")
+  const [resDisorder, setResDisorder] = useState()
+  const [resRisk, setResRisk] = useState()
   var ans = Array(70).fill(0)
   const navigate = useNavigate()
 
@@ -47,7 +49,7 @@ function DisplayQuestionTable({ data }) {
     {data[0].option_5 !== null?<th>{data[0].option_5}</th>:''}
   </tr>
 
-  function handleSubmit(event){
+  async function handleSubmit(event){
     event.preventDefault()
     setLoading(true)
     
@@ -69,6 +71,7 @@ function DisplayQuestionTable({ data }) {
       }
       if(resRisk === 1){
         setResDisorder("Autism and Dyslexia")
+
       }
     }
     if (probability > 50 && probability <=75){ 
@@ -92,7 +95,14 @@ function DisplayQuestionTable({ data }) {
 
     console.log(resRisk)
     console.log(resDisorder)
-    navigate("/result", {state:{resDisorder: resDisorder, resRisk: resRisk}})
+    // await updateDoc(doc(db, "students", currentStudentID), {
+    //   recentTest: arrayUnion({
+    //     disorder: resDisorder,
+    //     riskValue: resRisk
+    //   })
+    // })
+
+    // navigate("/result", { state:{disorder: resDisorder, risk:resRisk} })
 
     setLoading(false)
   }
@@ -124,6 +134,9 @@ function DisplayQuestionTable({ data }) {
 export default function Assessment() {
   const [data, setData] = useState()
   const [show, setShow] = useState(true);
+  const [studentList, setStudentList] = useState([])
+  const [currentStudentID, setCurrentStudentID] = useState("")
+  const { currentUser } = useAuth()
   
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -143,38 +156,57 @@ export default function Assessment() {
       setData(docDataAutism.concat(docDataDyslexia))
       handleShow()
     }
+
+    const loadStudentList = async() => {
+      const studentRef = collection(db, "students")
+      const q = query(studentRef, where("orgID", "==", currentUser.uid))
+      const querySnapshot = await getDocs(q)
+
+      const queryData = querySnapshot.docs.map((doc) => (
+          doc
+      ))
+
+      setStudentList(queryData)
+    }
     
     loadData()
+    loadStudentList()
   }, [])
 
-  return <>{data && <DisplayQuestionTable data={data} />}
+  const showStudentList = studentList.map((std) => (
+    <div className="row mb-3">
+        <div className="col-md-2">
+            <h5>{std.data().name}</h5>
+        </div>
+        <div className="col-md-2">
+            <h5>{std.data().class}</h5>
+        </div>
+        <div className="col-md-2">
+            <h5>{std.data().age}</h5>
+        </div>
+        <div className="col-md-2">
+            <h5>{std.data().gender==="M"?"Male":"Female"}</h5>
+        </div>
+        <div className="col-md-2">
+          <Button onClick={() => {handleClose();setCurrentStudentID(std.id)}}>Select</Button>
+        </div>
+    </div>
+  ))
+
+  return <>{data && <DisplayQuestionTable data={data} currentStudentID={currentStudentID}/>}
   
   <Modal show={show}>
-        <Modal.Header >
-          <Modal.Title>STUDENTS</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>    
-        <div className="card-body">
-                        <div className="row">
-                            <div className="col-md-2">
-                                <h5>Student name</h5>
-                            </div>
-                            <div className="col-md-2">
-                                <h5>class</h5>
-                            </div>
-                            <div className="col-md-2">
-                                <h5>Age</h5>
-                            </div>
-                            <div className="col-md-2">
-                                <h5>Gender</h5>
-                            </div>
-                        </div>
-          
-          </div>
-           </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-        </Modal.Footer>
+    <Modal.Header >
+      <Modal.Title>STUDENTS</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>    
+      <div className="card-body">
+        {showStudentList}
+      </div>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={handleClose}>Close</Button>
+    </Modal.Footer>
   </Modal>
   </>
 }
