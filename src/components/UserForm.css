@@ -3,10 +3,12 @@
     margin: auto;
     background-color: whitesmoke;
     width: 300px;
-    height: 420px;
+    height: 340px;
     padding: 10px;
     display: center;
     border: 0.5rem outset #019587;
+    margin-top: 50px;
+    margin-bottom: 40px;
   }
   .square2 {
     margin: auto;

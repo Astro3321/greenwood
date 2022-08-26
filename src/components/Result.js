@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Container, Row, Col, ProgressBar, Table } from 'react-bootstrap'
+import Chart from 'react-apexcharts';
 
 
 
@@ -54,6 +55,23 @@ return(
             </div>
                     
                     <br /><br /><br />
+
+                    <Chart  type="bar" width={980} height={300}  style={{alignitem:"center", margin:"auto"}}
+                    
+                    series={[
+                        {
+                            name:"answer choosed",
+                            data:[10,6,8,4,12]
+                        }
+                    ]}
+
+
+                    options={
+                        {}
+                    }
+                    >
+                       
+                    </Chart>
 
                     <center>
                 <h1>Questionaire Result</h1>
