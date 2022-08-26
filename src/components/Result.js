@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap'
 import Chart from 'react-apexcharts';
 import { useLocation } from 'react-router-dom'; 
 
-function DisplayResultTable({ data, disorder, risk}) {
+function DisplayResultTable({ data, result}) {
     const {state } = useLocation()
     const showQuestion = data.map((obj,index) => (
         <tr>
@@ -33,7 +33,7 @@ return(
                     <div className="col-md-4">
                         <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className="fs-2"><strong>{disorder}</strong></h3>
+                                <h3 className="fs-2"><strong>{result}</strong></h3>
                                 {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
@@ -41,7 +41,7 @@ return(
                     <div className="col-md-4">
                         <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className="fs-2"><strong>{risk}</strong></h3>
+                                <h3 className="fs-2"><strong>{""}</strong></h3>
                                 {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
@@ -95,5 +95,5 @@ return(
 export default function Result() {
     const location = useLocation()
     const data = []
-    return <DisplayResultTable data={data} disorder={location.state.disorder} risk={location.state.risk}/>
+    return <DisplayResultTable data={data} result={location.state.result}/>
 }
