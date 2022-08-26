@@ -6,12 +6,11 @@ import { Button, Form, Table } from 'react-bootstrap'
 import { Modal } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 
-
-
 function DisplayQuestionTable({ data }) {
   const [loading, setLoading] = useState(false)
+  const [resDisorder, setResDisorder] = useState("")
+  const [resRisk, setResRisk] = useState("")
   var ans = Array(70).fill(0)
-  var resText = {disorder: "", risk: ""}
   const navigate = useNavigate()
 
   const showQuestions = data.map((obj, index) => (
@@ -54,45 +53,46 @@ function DisplayQuestionTable({ data }) {
     
     //Autism Detection
     const sumAutism = ans.slice(0, 41).reduce((partialSum, a) => partialSum + a, 0)
-    if (sumAutism < 70){ resText.disorder = "Autism"; resText.risk = 0 }
-    else if (sumAutism > 70 && sumAutism <= 106){ resText.disorder = "Autism"; resText.risk = 1 }
-    else if (sumAutism > 107 && sumAutism <= 153){ resText.disorder = "Autism"; resText.risk = 2 }
-    if (sumAutism > 153){ resText.disorder = "Autism"; resText.risk = 3 }
+    if (sumAutism < 70){ setResDisorder("Autism"); setResRisk(0) }
+    else if (sumAutism > 70 && sumAutism <= 106){ setResDisorder("Autism"); setResRisk(1) }
+    else if (sumAutism > 107 && sumAutism <= 153){ setResDisorder("Autism"); setResRisk(2) }
+    if (sumAutism > 153){ setResDisorder("Autism"); setResRisk(3) }
 
     //Dyslexia Detection
     const sumDyslexia = ans.slice(41, 71).reduce((partialSum, a) => partialSum + a, 0)
     const probability = (sumDyslexia / 120) * 100
-    if (probabiltiy <= 25){ resText.disorder = "Dyslexia"; resText.risk = 0}
-    if (probabiltiy > 25 && probability <= 50){ 
-      if(resText.risk < 1){
-        resText.disorder = "Dyslexia"
-        resText.risk = 1
+    if (probability <= 25){ setResDisorder("Dyslexia"); setResRisk(0)}
+    if (probability > 25 && probability <= 50){ 
+      if(resRisk < 1){
+        setResDisorder("Dyslexia")
+        setResRisk(1)
       }
-      if(resText.risk === 1){
-        resText.disorder="Autism and Dyslexia"
-      }
-    }
-    if (probabiltiy > 50 && probability <=75){ 
-      if(resText.risk < 2){
-        resText.disorder = "Dyslexia"
-        resText.risk = 2
-      }
-      if(resText.risk === 2){
-        resText.disorder="Autism and Dyslexia"
+      if(resRisk === 1){
+        setResDisorder("Autism and Dyslexia")
       }
     }
-    if (probabiltiy > 75){ 
-      if(resText.risk < 3){
-        resText.disorder = "Dyslexia"
-        resText.risk = 3
+    if (probability > 50 && probability <=75){ 
+      if(resRisk < 2){
+        setResDisorder("Dyslexia")
+        setResRisk(2)
       }
-      if(resText.risk === 3){
-        resText.disorder="Autism and Dyslexia"
+      if(resRisk === 2){
+        setResDisorder("Autism and Dyslexia")
+      }
+    }
+    if (probability > 75){ 
+      if(resRisk < 3){
+        setResDisorder("Dyslexia")
+        setResRisk(3)
+      }
+      if(resRisk === 3){
+        setResDisorder("Autism and Dyslexia")
       }
     }
 
-    console.log(resText)
-    navigate("/result", {state:{res: resText}})
+    console.log(resRisk)
+    console.log(resDisorder)
+    navigate("/result", {state:{resDisorder: resDisorder, resRisk: resRisk}})
 
     setLoading(false)
   }
@@ -116,8 +116,6 @@ function DisplayQuestionTable({ data }) {
 
       <Button className="d-flex mx-auto justify-content-center" style={{width: "15rem"}} type="submit" disabled={loading}>
         Result</Button>
-
-      <div>{resText}</div>
     </Form>
    </div>
   )
