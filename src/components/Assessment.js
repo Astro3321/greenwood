@@ -27,7 +27,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
         <td><span>{obj.question}</span></td>
 
         <td><div className="d-flex justify-content-center">
-          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}} defaultChecked={true} required/>
+          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}} required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 2}} required/>

@@ -14,7 +14,7 @@ import RecentTest from "./components/RecentTest"
 import Result from "./components/Result"
 import OrgSignup from "./components/OrgSignup"
 import OrgProfile from "./components/OrgProfile"
-import { Modal } from "react-bootstrap"
+import { Modal, Dropdown } from "react-bootstrap"
 
 export default function App() {
 	const fontStyles = {
@@ -34,7 +34,17 @@ export default function App() {
 							<Nav className="me-auto">
 								<Nav.Link href="/">Home</Nav.Link>
 								<Nav.Link href="/about">About</Nav.Link>
-								<Nav.Link href="/tests">Tests</Nav.Link>
+								<Dropdown>
+									<Dropdown.Toggle variant="dark" className="mt-1" id="dropdown-basic">
+										Test
+									</Dropdown.Toggle>
+
+									<Dropdown.Menu>
+										<Dropdown.Item href="/tests">Basic Test</Dropdown.Item>
+										<Dropdown.Item href="#/action-2">Advanced Test</Dropdown.Item>
+										
+									</Dropdown.Menu>
+								</Dropdown>
 							</Nav>
 							<Nav>
 								<Nav.Link href="/login">Login</Nav.Link>
