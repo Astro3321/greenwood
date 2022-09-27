@@ -33,7 +33,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 2}} required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
-          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 3}} required/>
+          <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 3}}  required/>
         </div></td>
         <td><div className="d-flex justify-content-center">
           <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 4}} required/>
@@ -102,15 +102,19 @@ function DisplayQuestionTable({ data, currentStudentID }) {
     // console.log(dyslexiaRisk)
     // console.log(resDyslexia)
     // console.log("......")
+    var currentdate = new Date(); 
+    var date = currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear() 
+    var time = currentdate.getHours() + ":"  + currentdate.getMinutes() + ":" + currentdate.getSeconds()
 
     console.log(res)
 
-    // await updateDoc(doc(db, "students", currentStudentID), {
-    //   recentTest: arrayUnion({
-    //     disorder: resDisorder,
-    //     riskValue: resRisk
-    //   })
-    // })
+    {res && await updateDoc(doc(db, "students", currentStudentID), {
+        recentTest: arrayUnion({
+          disorder: res,
+          date: date,
+          time: time
+        })
+      })}
 
     {res && navigate("/result", { state:{result: res} })}
 

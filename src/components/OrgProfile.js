@@ -5,7 +5,7 @@ import { db } from '../config/firebase-config'
 import { getDoc, doc } from '@firebase/firestore'
 import { Button } from 'react-bootstrap'
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
-import { scryRenderedDOMComponentsWithClass } from 'react-dom/test-utils'
+import { CSVDownload } from "react-csv"
 
 
 export default function OrgProfile() {
@@ -20,6 +20,7 @@ export default function OrgProfile() {
     const [gender, setGender] = useState("M")
     const { currentUser, logout } = useAuth()
     const navigate = useNavigate()
+    var csvData = [["Date", "Time", "Disorder-Result"]]
 
     useEffect(() => {
         const loadData = async () => {
@@ -33,29 +34,44 @@ export default function OrgProfile() {
             const querySnapshot = await getDocs(q)
 
             const queryData = querySnapshot.docs.map((doc) => (
-                doc.data()
+                doc
             ))
 
             setStudentList(queryData)
         }
 
+        const getData = () => {
+            studentList.map((std) => (
+                std.data().recentTest.map(obj => (
+                    csvData.push([obj.date, obj.time, obj.disorder])
+                ))
+            ))
+        }
+
         loadData()
         loadStudentList()
+        getData()
+
+        console.log(csvData)
     }, [])  
+
     
     const showStudentList = studentList.map((std) => (
         <div className="row">
             <div className="col-md-2">
-                <h5>{std.name}</h5>
+                <h5>{std.data().name}</h5>
             </div>
             <div className="col-md-2">
-                <h5>{std.class}</h5>
+                <h5>{std.data().class}</h5>
             </div>
             <div className="col-md-2">
-                <h5>{std.age}</h5>
+                <h5>{std.data().age}</h5>
             </div>
             <div className="col-md-2">
-                <h5>{std.gender}</h5>
+                <h5>{std.data().gender}</h5>
+            </div>
+            <div className="col-md-2">
+                <CSVDownload data={csvData} target="_blank">Download</CSVDownload>
             </div>
         </div>
     ))

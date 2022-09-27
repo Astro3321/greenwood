@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import Chart from 'react-apexcharts';
-<<<<<<< HEAD
-import { useEffect } from 'react';
-=======
 import { useLocation } from 'react-router-dom'; 
->>>>>>> ae653f6359b22f54b1ac5bb43ddea0918e04b46b
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from '../config/firebase-config';
 
 function DisplayResultTable({ data, result}) {
     const {state } = useLocation()
@@ -42,18 +40,18 @@ return(
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                         <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className="fs-2"><strong>{""}</strong></h3>
                                 {/* <p className="fs-5">userType</p> */}
-                            </div>
+                            {/* </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col-md-4">
                         <div className="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className="fs-2"><strong> Advance Test</strong></h3>
+                                <h3 className="fs-2"><strong>{result === "Normal"?"No Test Required":"Advanced Test"}</strong></h3>
                                 {/* <p className="fs-5">userType</p> */}
                             </div>
                         </div>
@@ -63,7 +61,7 @@ return(
                     
                     <br /><br /><br />
 
-                    <Chart  type="bar" width={980} height={300}  
+                    {/* <Chart  type="bar" width={980} height={300}  
                     
                     series={[
                         {
@@ -78,9 +76,9 @@ return(
                     }
                     >
                        
-                    </Chart>
+                    </Chart> */}
 
-                    <center>
+                    {/* <center>
                 <h1>Questionaire Result</h1>
             </center>
 
@@ -91,19 +89,19 @@ return(
                 <tbody>
                     {showQuestion}
                 </tbody>
-            </Table>
+            </Table> */}
         </div>
          )
 }
 
 export default function Result() {
-<<<<<<< HEAD
-    
-
+    const location = useLocation()
+    const data = []
+    const [studentList, setStudentList] = useState()
     useEffect(() =>{
         const loadStudentList = async() => {
             const studentRef = collection(db, "students")
-            const q = query(studentRef, where("orgID", "==", currentStudentID))
+            const q = query(studentRef, where("orgID", "==", location.state.id))
             const querySnapshot = await getDocs(q)
 
             const queryData = querySnapshot.docs.map((doc) => (
@@ -112,20 +110,7 @@ export default function Result() {
 
             setStudentList(queryData)
         }
-
-
-
-
     },[])
 
-    return <DisplayResultTable data={data}/>
-=======
-    const location = useLocation()
-    const data = []
-<<<<<<< HEAD
-    return <DisplayResultTable data={data} disorder={location.state.disorder} risk={location.state.risk}/>
->>>>>>> ae653f6359b22f54b1ac5bb43ddea0918e04b46b
-=======
     return <DisplayResultTable data={data} result={location.state.result}/>
->>>>>>> 0df4eed2310a427bddee916a2b5918f11d5a1f3f
 }

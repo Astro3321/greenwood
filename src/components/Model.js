@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Modal } from "react-bootstrap"
+import { Button, Modal , Card} from "react-bootstrap"
 import { useEffect, useState } from 'react'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase-config';
 import { useAuth } from '../contexts/AuthContext';
+import img from "./disgraphia.png"
 
 export default function Model(props) {
     const [data, setData] = useState()
@@ -74,30 +75,17 @@ export default function Model(props) {
 
       
 
-    return(
-      
-    <section className='section'> 
-    <div className="assesment">
-        <div className="assesment-feature">
-           <img src="himages/dislexia.png" alt="" /><div className="overlay"></div>
-            <div className="discription">
-                <h3>DISLEXIA</h3>
-                <hr/>
-                <a href="http://127.0.0.1:5500/pages/dyslexia/dyslexia.html"  className="overlay-link"> <p style={{marginTop:"10px"}}>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding). Also called reading disability, dyslexia affects areas of the brain that process language.</p></a>
-            </div>
-        </div>
-
-
-       <div className="assesment-feature">
-            <img src="himages/dispraxia.png" alt="" /><div className="overlay"></div>
-            <div className="discription">
-                <h3>DISPRAXIA</h3>
-                <hr/>
-             <a href="http://127.0.0.1:5500/pages/dispraxia/dispraxia.html"  className="overlay-link"> <p>Dyspraxia is a brain-based motor disorder.It affects fine and gross motor skills,motor planning and co-ordination </p></a>
-            </div></div></div>     
-
-     
-             
+    return(<>
+        <Card style={{ width: '18rem',alignItems:"center", margin:"auto",marginTop:"6rem",marginBottom:"6rem" }}>
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+          <Card.Title>Advanced Test - Dyslexia</Card.Title>
+          <Card.Text>
+            
+          </Card.Text>
+          <Button variant="primary">Go to test</Button>
+        </Card.Body>
+      </Card>
   <Modal show={show}>
     <Modal.Header >
       <Modal.Title>STUDENTS</Modal.Title>
@@ -110,15 +98,6 @@ export default function Model(props) {
     <Modal.Footer>
       <Button variant="secondary" onClick={handleClose}>Close</Button>
     </Modal.Footer>
-  </Modal>
-
-
-
-
-
-
-
-
-</section>
+  </Modal></>
      )
 }
