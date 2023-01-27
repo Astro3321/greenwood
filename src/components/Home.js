@@ -93,10 +93,23 @@ export default function Home(props) {
                 <hr/>
               <a href="http://127.0.0.1:5500/pages/Discalculia/discalculia.html"  className="overlay-link">  <p>Dyscalculia is a disability resulting in difficulty learning, such as difficulty in understanding numbers, learning how to manipulate numbers, performing mathematical calculations and learning facts in mathematics.</p></a>
             </div></div> */}
+          
             
             </div>
+
+           
             </section>
             <h2 style={firsttest}>.</h2>
+
+            <br />
+            <br />
+            <br />
+            
+            {/* <div> <lord-icon
+    src="https://cdn.lordicon.com/cnhaewqi.json"
+    trigger="hover"
+    style={{width:"300px" ,height:"300px"}}>
+</lord-icon></div> */}
 
 </>
   )
