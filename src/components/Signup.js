@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../config/firebase-config"
 import ".//UserForm.css"
-import bgimg from "../images/25.08.2022_19.13.44_REC.png"
+import bgimg from "../images/Greenwoodbg.png"
 
 
 export default function Signup() {
@@ -53,12 +53,14 @@ export default function Signup() {
 
 
 const banner = {
-    background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${bgimg}) no-repeat center center / cover`,
+    // background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${bgimg}) no-repeat center center / cover`,
+    background: `url(${bgimg})`,
+    height:"700px"
 }
 
 
     return (<>
-    <div    style={banner}>
+    <div   style={banner}  >
     <br></br>
     <div className="square2">
     <Card >
@@ -129,7 +131,7 @@ const banner = {
     <strong> Already have an Account? </strong><Link className='btn btn-light ml-3'  to="/login">Login</Link>
     </div>
     </div>
-    <br></br> </div>
+    <br></br> </div> <br />
     </>)
 }
 

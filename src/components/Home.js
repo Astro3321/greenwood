@@ -1,6 +1,7 @@
 import React from 'react'
 import "../App.css"
 import CoverImg from "../images/CoverImg.png"
+
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 export default function Home(props) {
@@ -11,6 +12,8 @@ export default function Home(props) {
         // backgroundposition: "center",
         height: "100vh",
     };
+
+   
 
     const firsttest = {
         textalign: "center",
@@ -30,11 +33,15 @@ export default function Home(props) {
                 <a href="http://127.0.0.1:5500/pages/greenwood/Greenwood.html" ><span></span><b>Read More</b></a>
             </div>
         </div>
-    </section>
-
+        </section>
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#28c792" fill-opacity="1" d="M0,192L48,165.3C96,139,192,85,288,53.3C384,21,480,11,576,10.7C672,11,768,21,864,53.3C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg> */}
+         
+   
+  
     {/* <!-- features --> */}
-    <section className="feature">
-    <div className="title-text">
+
+    <section className="feature" >
+    <div className="title-text" style={{position:"relative",margin_top:"-1000px"}}>
         <p>FEATURES</p>
         <h1>Learning Disorder Assesments</h1>
         <br/> </div>
@@ -47,7 +54,7 @@ export default function Home(props) {
             <div className="discription">
                 <h3>FUNDAMENTAL TEST</h3>
                 <hr/>
-              <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link">  <p>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
+              <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link" >  <p style={{text_decoration:"none"}}>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
             </div>
               {/* <h2>Fundamental Test </h2> */}
               </div>

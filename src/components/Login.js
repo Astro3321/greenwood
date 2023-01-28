@@ -3,7 +3,7 @@ import {Form, Button, Card, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import "./UserForm.css"
-import bgimg from "../images/25.08.2022_19.13.44_REC.png"
+import bgimg from "../images/Greenwoodbg.png"
 
 
 export default function Login(props) {
@@ -41,14 +41,15 @@ export default function Login(props) {
 
 
     const banner = {
-        background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${bgimg}) no-repeat center center / cover`, /*/url */
-              
+        // background: `linear-gradient(rgb(0,0,0,0.5),#28c792),url(${bgimg}) no-repeat center center / cover`, /*/url */
+              background: `url(${bgimg})`,
+              height: "700px"
     };
 
   
   
   return (<>
-     <div    style={banner}>
+     <div  style={banner} >
   <br></br>
   <div className="square1" >
     <Card >
@@ -74,7 +75,7 @@ export default function Login(props) {
       <strong> Need an Account? <Link  to="/signup">Sign Up</Link></strong>
     </div>
     </div>
-    <br></br>
+    <br></br><br /><br /><br /><br />
 
     {/* </section> */}  </div>
   </>)
