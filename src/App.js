@@ -17,6 +17,7 @@ import OrgProfile from "./components/OrgProfile"
 import Model from "./components/Model"
 import { Modal, Dropdown } from "react-bootstrap"
 // import View from "./components/View"
+import AutismModel from "./pages/Model/AutismModel"
 
 export default function App() {
 	const fontStyles = {
@@ -70,6 +71,7 @@ export default function App() {
 					{/* <Route path="/View" element={<View />}></Route> Result */}
 					<Route path="/OrgSignup" element={<OrgSignup/>}></Route> Organiation signup
 					<Route path="/test/advanced/model" element={<Model/>}></Route> ML Model
+					<Route path="/test/advanced/Autism-Model" element={<AutismModel />}></Route> Autism Model
 					{/* <Route path="/profile/organizaton" element={<OrgProfile/>}></Route> Organisation profile */}
 				</Routes>
 				<Footer />
