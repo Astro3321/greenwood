@@ -98,6 +98,6 @@ export default function Model(props) {
     <Modal.Footer>
       <Button variant="secondary" onClick={handleClose}>Close</Button>
     </Modal.Footer>
-  </Modal></>
+  </Modal> <br /><br /><br /><br />   <br /><br /><br /><br /><br /><br />    </>    
      )
 }

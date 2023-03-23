@@ -33,6 +33,10 @@ export default function Profile(props) {
     }
 
     return (
+    
+    
+        <>
+    
     <div>
       <div className='my-4' >
       <div className="row " >
@@ -106,12 +110,15 @@ export default function Profile(props) {
                         <div className="col-md-9 text-secondary">
                             Test description
                         </div>
+
+
+                        <br /><br /><br /><br /><br /><br /><br />
                     </div>
                 </div>
             </div>
          </div>
       </div>
     </div>
-    </div>
+    </div> <br /><br /><br /><br /><br /><br /><br />   </>
   )
 }

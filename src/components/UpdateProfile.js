@@ -179,7 +179,8 @@ export default function UpdateProfile(props) {
                             </Button>
                         </Row>
                     </Form>
+                    <br /><br /><br /><br /><br /><br /><br /><br />
                 </Card.Body>
-            </Card>
+            </Card>  <br /><br /><br /><br /><br /><br /><br />
     </>
 }
