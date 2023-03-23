@@ -11,7 +11,7 @@
 
 export default function genResult(ans){
     var result = {
-        autismRL: -1, 
+        autismRL: "modtly",    
         adhdRL: -1, 
         dyslexiaRL: -1, 
         dyspraxiaRL: -1, 

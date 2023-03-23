@@ -14,31 +14,32 @@ import showQuestions from './showQuestions'
 import showOptions from './showOptions'
 
 function DisplayQuestionTable({ data, currentStudentID }) {
-  // console.log(currentStudentID)
+  console.log(currentStudentID)
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
-  var ans = Array(70).fill(1)
+  var ans = Array(70).fill(2)
 
   async function handleSubmit(event){
     event.preventDefault()
     setLoading(true)
-
+    
     const res = genResult(ans);
     var date = getDate();
     var time = getTime();
-
+    
     console.log(res)
-
+    
     {res && await updateDoc(doc(db, "students", currentStudentID), {
-        recentTest: arrayUnion({
-          disorder: res,
-          date: date,
-          time: time
-        })
-      })}
-
+      recentTest: arrayUnion({
+        disorder: res,
+        date: date,
+        time: time
+      })
+    })}
+    
     {res && navigate("/result", { state:{result: res} })}
+    console.log("Here!!")
 
     setLoading(false)
   }

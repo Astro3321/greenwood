@@ -11,11 +11,12 @@ import Signup from "./components/Signup"
 import Assessment from "./pages/Assessment/Assessment"
 import UpdateProfile from "./components/UpdateProfile"
 import RecentTest from "./components/RecentTest"
-import Result from "./components/Result"
+import Result from "./pages/Result/Result"
 import OrgSignup from "./components/OrgSignup"
 import OrgProfile from "./components/OrgProfile"
 import Model from "./components/Model"
 import { Modal, Dropdown } from "react-bootstrap"
+// import View from "./components/View"
 
 export default function App() {
 	const fontStyles = {
@@ -66,6 +67,7 @@ export default function App() {
 					<Route path="/update-profile" element={<UpdateProfile/>}></Route> UpdateProfile
 					<Route path="/tests/recent" element={<RecentTest/>}></Route> Recent Test
 					<Route path="/result" element={<Result />}></Route> Result
+					{/* <Route path="/View" element={<View />}></Route> Result */}
 					<Route path="/OrgSignup" element={<OrgSignup/>}></Route> Organiation signup
 					<Route path="/test/advanced/model" element={<Model/>}></Route> ML Model
 					{/* <Route path="/profile/organizaton" element={<OrgProfile/>}></Route> Organisation profile */}

@@ -9,19 +9,19 @@ export default function showQuestions(data, ans){
             <td><span>{obj.question}</span></td>
     
             <td><div className="d-flex justify-content-center">
-              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}} required/>
+              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 1}} />
             </div></td>
             <td><div className="d-flex justify-content-center">
-              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 2}} required/>
+              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 2}} />
             </div></td>
             <td><div className="d-flex justify-content-center">
-              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 3}}  required/>
+              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 3}}  />
             </div></td>
             <td><div className="d-flex justify-content-center">
-              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 4}} required/>
+              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 4}} />
             </div></td>
             <td><div className="d-flex justify-content-center">
-              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}}  required/>
+              <Form.Check type="radio" name={`question-${index}`} onClick={() => {ans[index] = 5}}  />
             </div></td>
           </tr>
       ));
