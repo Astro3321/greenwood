@@ -18,7 +18,7 @@ div .body{
 footer{
     position: relative;
     width: 100%;
-    background: #3586FF;
+    background: #212529;
     height: 200px;
     padding: 20px 50px;
 justify-content: center;
@@ -70,14 +70,14 @@ footer p{
     margin-bottom: 10px;
     font-size: 1.1em;
 }
-
+/* 
 footer .wave{
     position: absolute;
     top: -100px;
     left: 0;
     width: 100%;
     height: 100px;
-    /* background: url(wave.png) ; */
+    background: url(wave.png) ;
     background-size:1000px 100px;
 }
 
@@ -120,4 +120,4 @@ footer .wave#wave4{
     100%{
         background-position-x:   1000px;;
     }
-}
+} */

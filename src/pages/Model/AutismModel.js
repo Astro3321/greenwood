@@ -20,9 +20,32 @@ export default function AutismModel() {
 
     console.log(result)
 
+
+    const height = {
+
+        height: "100vh"
+
+    }
+
     return (
-        <div>
+
+        <>
+        <div>  
             {result}
-        </div>
+
+            <div class="container" style={height}>
+  <div class="form-group" x-data="{ fileName: '' }">
+    <div class="input-group shadow">
+      <span class="input-group-text px-3 text-muted"><i class="fas fa-image fa-lg"></i></span>
+      <input type="file" x-ref="file"  name="img[]" class="d-none"/>
+      <input type="text" class="form-control form-control-lg" placeholder="Upload Image" x-model="fileName"/>
+      <button class="browse btn btn-primary px-10" type="button" > <i class="fas fa-image"></i> Browse
+      </button> <div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </div>
+    </div>
+  </div>
+</div>   
+        </div>     </>
     )
 }

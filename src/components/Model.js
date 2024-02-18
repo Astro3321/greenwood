@@ -79,11 +79,11 @@ export default function Model(props) {
         <Card style={{ width: '18rem',alignItems:"center", margin:"auto",marginTop:"6rem",marginBottom:"6rem" }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
-          <Card.Title>Advanced Test - Dyslexia</Card.Title>
+          <Card.Title>Advanced Test - Autism</Card.Title>
           <Card.Text>
             
           </Card.Text>
-          <Button variant="primary">Go to test</Button>
+          <Button variant="primary" onClick={<Model />}>Go to test</Button>
         </Card.Body>
       </Card>
   <Modal show={show}>
