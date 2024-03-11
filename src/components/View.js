@@ -12,7 +12,7 @@ export default function View(props) {
     <th>  Dysgraphia</th>
     <th>  Dyspraxia</th>
   </tr>
-  <tr>
+  <tr className='questions'>
     <td data-th={props.result.dyslexiaRL}> </td>
     <td data-th={props.result.autimsRL}></td>
     <td data-th={props.result.adhdRL}></td>

@@ -5,8 +5,6 @@
     tr {
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 10vh;
-      
     }
     
     th {
@@ -30,8 +28,9 @@
         /* // optional stuff to make it look nicer */
         width: 6.5em; 
         /* // end options */ 
+      
         
-        @media (min-width: $breakpoint-alpha) {
+        @media (min-width: 784px) {
           display: none;
         }
       }
@@ -40,7 +39,7 @@
     th, td {
       text-align: left;
       
-      @media (min-width: $breakpoint-alpha) {
+      @media (min-width: 784px) {
         display: table-cell;
         padding: .25em .5em;
         
@@ -48,6 +47,7 @@
           padding-left: 0;
         }
         
+
         &:last-child {
           padding-right: 0;
         }

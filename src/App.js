@@ -1,9 +1,11 @@
 import React from "react"
 import { Container, Navbar, Nav } from "react-bootstrap"
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext"
 import Home from "./components/Home"
-import Profile from "./components/Profile"
+// import Profile from "./components/Profile"
 import Footer from "./components/Footer"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
@@ -15,9 +17,10 @@ import Result from "./pages/Result/Result"
 import OrgSignup from "./components/OrgSignup"
 import OrgProfile from "./components/OrgProfile"
 import Model from "./components/Model"
-import { Modal, Dropdown } from "react-bootstrap"
+import {  Dropdown } from "react-bootstrap"
 // import View from "./components/View"
 import AutismModel from "./pages/Model/AutismModel"
+import "./pages/Assessment/Assessment.css"
 
 export default function App() {
 	const fontStyles = {
@@ -31,14 +34,14 @@ export default function App() {
 			<AuthProvider>
 				<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: "5rem",backgroundColor: "black"}}>
 					<Container style={fontStyles}>
-						<Navbar.Brand href="/">GreenWood</Navbar.Brand>
+						<Navbar.Brand href="/" className="mlogo" >GreenWood</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="me-auto">
 								<Nav.Link href="/">Home</Nav.Link>
 								<Nav.Link href="/about">About</Nav.Link>
 								<Dropdown>
-									<Dropdown.Toggle variant="dark" className="mt-1" id="dropdown-basic">
+									<Dropdown.Toggle variant="Dark" className="mt-2 md-4" id="dropdown-basic" style={{ backgroundColor: "#017e72", fontWeight: 'bold', fontSize:"15px", marginLeft:"17px", color:"white", marginBottom:"2px"}}>
 										Test
 									</Dropdown.Toggle>
 

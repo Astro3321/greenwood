@@ -1,3 +1,7 @@
+
+  
+
+
 .question-card{
     background-color: white;
     padding: 16px;
@@ -7,4 +11,76 @@
     color: black;
     width: 80%;
     height: auto;
+}
+
+.question-assesment{
+  
+  height: 8vh;
+  background-color: #212529;
+  color: white;
+  padding-bottom: 20px;
+}
+tr{
+  background-color: #ffe7a0
+}
+
+.td{
+  padding: 45px;
+}
+
+
+.table-sm>:not(caption)>*>* {
+  padding: 0.25rem 3.25rem;
+  border: 2px solid black;
+  font-weight: bold;
+  font-size: large;
+}
+
+.title-text{
+  margin:19px;
+  font-size: 40px;
+  color: #017e72;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-bottom: revert-layer;
+}
+.title-text::after{
+  content: '';
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(#017e72,#fff);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  z-index: -1;
+  transform: rotate(10deg);
+  border-top-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
+.mlogo{
+  margin-top: 12px;
+  margin-right:6rem;
+  font-size: 18px;
+  color: #013933;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-style: oblique;
+}
+.mlogo::after{
+  content: '';
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(#013933,#fff);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  z-index: -1;
+  transform: rotate(10deg);
+  border-top-left-radius: 35px;
+  border-bottom-right-radius: 35px;
 }

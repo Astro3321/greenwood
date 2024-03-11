@@ -1,8 +1,9 @@
 import React from "react";
+import "./Assessment.css"
 
 // Map JSON Data of Options to Tabular Format
 export default function showOptions(data){
-    return <tr>
+    return <tr style={{padding: "0.25rem 2rem"}} className="question-assesment table">
         <th>#</th>
         <th>Questions</th>
 

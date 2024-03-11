@@ -6,6 +6,7 @@ import { db } from '../config/firebase-config';
 import { useAuth } from '../contexts/AuthContext';
 import img from "./disgraphia.png"
 
+
 export default function Model(props) {
     const [data, setData] = useState()
     const [studentList, setStudentList] = useState([])
@@ -86,9 +87,10 @@ export default function Model(props) {
           <Button variant="primary" onClick={<Model />}>Go to test</Button>
         </Card.Body>
       </Card>
+
   <Modal show={show}>
-    <Modal.Header >
-      <Modal.Title>STUDENTS</Modal.Title>
+    <Modal.Header className='Model-Header'>
+      <Modal.Title>STUDES</Modal.Title>
     </Modal.Header>
     <Modal.Body>    
       <div className="card-body">

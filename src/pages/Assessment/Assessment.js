@@ -47,11 +47,11 @@ function DisplayQuestionTable({ data, currentStudentID }) {
   return (
     <div className="Assessment">
     <center> 
-      <h1 className="mb-4 mt-4">Questionaaire</h1>
+      <h1 className="title-text">Fundamental Test</h1>
     </center>
 
     <Form onSubmit={handleSubmit}>
-      <Table responsive bordered hover size="sm" >
+      <Table responsive bordered hover size="sm" className='table' style={{padding: "0.25rem 2rem"}}>
         <thead>
           {showOptions(data)}
         </thead>
@@ -61,7 +61,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
         </tbody>
       </Table>
 
-      <Button className="d-flex mx-auto justify-content-center" style={{width: "15rem"}} type="submit" disabled={loading}>
+      <Button className="d-flex mx-auto justify-content-center font-bold" style={{width: "109rem", backgroundColor: "#017e72", fontWeight: 'bold', fontSize:"15px"}} type="submit" disabled={loading}>
         Result</Button>
     </Form>
    </div>
