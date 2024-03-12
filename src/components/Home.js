@@ -41,7 +41,7 @@ export default function Home(props) {
     {/* <!-- features --> */}
 
     <section className="feature" >
-    <div className="title-text" style={{position:"relative",margin_top:"-1000px"}}>
+    <div className="title-text" style={{position:"relative",margin_top:"-1000px", marginLeft:"0px"}}>
         <p>FEATURES</p>
         <h1>Learning Disorder Assesments</h1>
         <br/> </div>
@@ -54,7 +54,7 @@ export default function Home(props) {
             <div className="discription">
                 <h3>FUNDAMENTAL TEST</h3>
                 <hr/>
-              <a href="http://127.0.0.1:5500/pages/Autism/autism.html"  className="overlay-link" >  <p style={{text_decoration:"none"}}>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
+              <a href="/test/basic"  className="overlay-link" >  <p style={{text_decoration:"none"}}>This fundamental test is common test for all learning disabilities used to indentify which disorder a student can have to advocate for subsequent test</p></a>
             </div>
               {/* <h2>Fundamental Test </h2> */}
               </div>

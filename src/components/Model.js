@@ -56,7 +56,7 @@ export default function Model(props) {
       }, [])
     
       const showStudentList = studentList.map((std) => (
-        <div className="row mb-3">
+        <div  className="row mb-3">
             <div className="col-md-2">
                 <h5>{std.data().name}</h5>
             </div>
@@ -90,7 +90,7 @@ export default function Model(props) {
 
   <Modal show={show}>
     <Modal.Header className='Model-Header'>
-      <Modal.Title>STUDES</Modal.Title>
+      <Modal.Title>STUDENTS</Modal.Title>
     </Modal.Header>
     <Modal.Body>    
       <div className="card-body">

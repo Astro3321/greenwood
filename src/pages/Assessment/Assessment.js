@@ -47,7 +47,7 @@ function DisplayQuestionTable({ data, currentStudentID }) {
   return (
     <div className="Assessment">
     <center> 
-      <h1 className="title-text">Fundamental Test</h1>
+      <h1 className="title-tex">Fundamental Test</h1>
     </center>
 
     <Form onSubmit={handleSubmit}>

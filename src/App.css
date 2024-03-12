@@ -105,16 +105,19 @@
   .title-text{
       text-align: center;
       padding-bottom: 70px;
+      margin-left: 187px;
   }
   .title-text p{
-      margin:auto;
+      /* margin:auto; */
       font-size: 20px;
       color: #00a16c;
       font-weight: bold;
       position: relative;
       z-index: 1;
       display: inline-block;
+
   }
+  
   .title-text p::after{
       content: '';
       width: 50px;
@@ -127,11 +130,13 @@
       transform: rotate(10deg);
       border-top-left-radius: 35px;
       border-bottom-right-radius: 35px;
+     
   }
   .title-text h1{
       font-size: 50px;
       font-family: 'Ibarra Real Nova', serif;
       font-weight: bold;
+      color: #000;
 
   }
   

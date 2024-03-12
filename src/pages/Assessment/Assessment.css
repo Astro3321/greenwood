@@ -36,7 +36,7 @@ tr{
   font-size: large;
 }
 
-.title-text{
+.title-tex{
   margin:19px;
   font-size: 40px;
   color: #017e72;
@@ -46,7 +46,7 @@ tr{
   display: inline-block;
   padding-bottom: revert-layer;
 }
-.title-text::after{
+.title-tex::after{
   content: '';
   width: 50px;
   height: 35px;
